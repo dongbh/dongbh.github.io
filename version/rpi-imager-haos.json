@@ -1,0 +1,49 @@
+{
+  "os_list": [
+    {
+      "name": "Home Assistant OS 11.2 (RPi 4/400)",
+      "description": "Open source home automation that puts local control and privacy first.",
+      "url": "https://github.com/home-assistant/operating-system/releases/download/11.2/haos_rpi4-64-11.2.img.xz",
+      "icon": "https://version.home-assistant.io/brand/logo.png",
+      "extract_size": 2147483648,
+      "extract_sha256": "bbfe3f36fb63c66544a5a8d0b500ea34dbca13b311ead122945e717ba2c20ea9",
+      "release_date": "2023-12-04",
+      "image_download_size": 303637916,
+      "image_download_sha256": "8c72f59e4095994a11e77bb2a25a51c95e282b5b604716acc4e3bf7644e9b868",
+      "website": "https://www.home-assistant.io",
+      "devices": [
+        "pi4-64bit"
+      ]
+    },
+    {
+      "name": "Home Assistant OS 11.2 (RPi 3)",
+      "description": "Open source home automation that puts local control and privacy first.",
+      "url": "https://github.com/home-assistant/operating-system/releases/download/11.2/haos_rpi3-64-11.2.img.xz",
+      "icon": "https://version.home-assistant.io/brand/logo.png",
+      "extract_size": 2147483648,
+      "extract_sha256": "476f56f14554464b383ad43f52a2ebd4f7351c64de6444df356324807c867c80",
+      "release_date": "2023-12-04",
+      "image_download_size": 301452172,
+      "image_download_sha256": "416a0e1ee3748858bcd540c5282324dee002715c4961f4f08493f713ff3d97a6",
+      "website": "https://www.home-assistant.io",
+      "devices": [
+        "pi3-64bit"
+      ]
+    },
+    {
+      "name": "Home Assistant OS Installer for Yellow",
+      "description": "Installer for Home Assistant Yellow Kit.",
+      "url": "https://github.com/NabuCasa/yellow-buildroot/releases/download/yellow-installer-20231025/yellow-installer-20231025.img.xz",
+      "icon": "https://version.home-assistant.io/rpi-imager-yellow-installer.png",
+      "extract_size": 68157440,
+      "extract_sha256": "7e83edc8360d6a32010b18fa3ecd6fa9a6700be5ed47c21129534581697170a5",
+      "release_date": "2023-10-25",
+      "image_download_size": 33371388,
+      "image_download_sha256": "fa1c4fdd72d116527cf37a1d3b849c480c08fff373b4a6c8d0017dae7da3e3f2",
+      "website": "https://yellow.home-assistant.io",
+      "devices": [
+        "pi4-64bit"
+      ]
+    }
+  ]
+}
