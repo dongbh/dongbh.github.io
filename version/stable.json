@@ -78,12 +78,12 @@
     "multicast": "homeassistant/{arch}-hassio-multicast"
   },
   "images": {
-    "core": "ghcr.io/home-assistant/{machine}-homeassistant",
-    "supervisor": "ghcr.io/home-assistant/{arch}-hassio-supervisor",
-    "cli": "ghcr.io/home-assistant/{arch}-hassio-cli",
-    "audio": "ghcr.io/home-assistant/{arch}-hassio-audio",
-    "dns": "ghcr.io/home-assistant/{arch}-hassio-dns",
-    "observer": "ghcr.io/home-assistant/{arch}-hassio-observer",
-    "multicast": "ghcr.io/home-assistant/{arch}-hassio-multicast"
+    "core": "ghcr.nju.edu.cn/home-assistant/{machine}-homeassistant",
+    "supervisor": "ghcr.nju.edu.cn/home-assistant/{arch}-hassio-supervisor",
+    "cli": "ghcr.nju.edu.cn/home-assistant/{arch}-hassio-cli",
+    "audio": "ghcr.nju.edu.cn/home-assistant/{arch}-hassio-audio",
+    "dns": "ghcr.nju.edu.cn/home-assistant/{arch}-hassio-dns",
+    "observer": "ghcr.nju.edu.cn/home-assistant/{arch}-hassio-observer",
+    "multicast": "ghcr.nju.edu.cn/home-assistant/{arch}-hassio-multicast"
   }
 }
