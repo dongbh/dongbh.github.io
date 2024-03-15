@@ -33,7 +33,7 @@ uart:
 leds: GPIO14, GPIO4, GPIO16
 ```
 ### esphome 配置文件
-···
+```
 esphome:
   name: zbgw8201
 
@@ -49,24 +49,16 @@ esp32:
     advanced:
       ignore_efuse_mac_crc: false
 
-#  includes:
-#    - stream_server.h
-#    - stream_server.cpp
-
 external_components:
-#  - source: github://oxan/esphome-stream-server
   - source: github://tube0013/esphome-stream-server-v2
-#  - source: github://myhomeiot/esphome-components
-
 
 ethernet:
   type: RTL8201
   mdc_pin: GPIO23
   mdio_pin: GPIO18
   clk_mode: GPIO0_IN
-#  clk_mode: GPIO17_OUT
   phy_addr: 0
-#  power_pin: GPIO17
+  power_pin: GPIO17
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
 #  ap:
@@ -117,7 +109,6 @@ sensor:
     entity_category: "diagnostic"
 
 
-
 esp32_ble_tracker:
   scan_parameters:
     interval: 1100ms
@@ -126,5 +117,4 @@ esp32_ble_tracker:
 
 bluetooth_proxy:
   active: true
-···
-
+```
