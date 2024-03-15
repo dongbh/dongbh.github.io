@@ -11,7 +11,7 @@ For more details see [Basic writing and formatting syntax](https://docs.github.c
 
 
 ### esphome 配置文件
-·
+···
 esphome:
   name: zbgw8201
 
@@ -104,7 +104,7 @@ esp32_ble_tracker:
 
 bluetooth_proxy:
   active: true
-·
+···
 
 ### Support or Contact
 
