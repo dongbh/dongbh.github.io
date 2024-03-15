@@ -5,11 +5,33 @@ zbgw8201 是一款支持 zigbee 和 ble 的有线网关，用于这些设备接�
 
 ### 主要特点
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+- 处理器为esp32， 采用esp-wroom-32ue，带有ipex天线接口，可接外置天线；
+- zigbee 模块采用 efr32mg13p732, 信号稳定，带机量大；
+- 网络芯片为rtl8201，稳定可靠；
+- 支持ota升级，盒子可以安心呆在角落；
+- 外置高增益天线（可以用于zigbee或esp32）;
+- 支持 zha 和 zigbee2mqtt;
+- 配置文件附后，可以自行编译升级；
+
+#### 使用方法
 
 ### 核心配置
+```
+ethernet:
+  type: RTL8201
+  mdc_pin: GPIO23
+  mdio_pin: GPIO18
+  clk_mode: GPIO0_IN
+  phy_addr: 0
+  power_pin: GPIO17
 
+uart:
+  id: uart_bus
+  tx_pin: GPIO33
+  rx_pin: GPIO32
 
+leds: GPIO14, GPIO4, GPIO16
+```
 ### esphome 配置文件
 ···
 esphome:
