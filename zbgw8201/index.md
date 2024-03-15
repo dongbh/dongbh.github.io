@@ -1,4 +1,4 @@
-## zbgw8210 zigbee 和 ble 的有线网关
+## zbgw8210 zigbee 和 ble 有线网关
 
 zbgw8201 是一款支持 zigbee 和 ble 的有线网关，用于这些设备接入 home assistant。
 
@@ -9,11 +9,11 @@ zbgw8201 是一款支持 zigbee 和 ble 的有线网关，用于这些设备接�
 - zigbee 模块采用 efr32mg13p732, 信号稳定，带机量大；
 - 网络芯片为rtl8201，稳定可靠；
 - 支持ota升级，盒子可以安心呆在角落；
-- 外置高增益天线（可以用于zigbee或esp32）;
-- 支持 zha 和 zigbee2mqtt;
+- 外置高增益天线（可以用于zigbee或esp32）；
+- 支持 zha 和 zigbee2mqtt；
 - 配置文件附后，可以自行编译升级；
 
-#### 使用方法
+### 使用方法
 
 ### 核心配置
 ```
@@ -118,3 +118,5 @@ esp32_ble_tracker:
 bluetooth_proxy:
   active: true
 ```
+### 其他
+- 系统有3个led指示灯，均可以自行配置，目前第一个（GPIO14)被用于显示esphome运行状态。
