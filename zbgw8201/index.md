@@ -124,6 +124,28 @@ sensor:
     state_class: measurement
     entity_category: "diagnostic"
 
+status_led:
+  pin: 
+    number: GPIO14
+    inverted: true
+
+output:
+  - platform: gpio
+    pin: 4
+    id: 'yellow_out'
+    inverted: true
+  - platform: gpio
+    pin: 16
+    id: 'blue_out'
+    inverted: true
+
+switch:
+  - platform: output
+    name: "Yellow LED"
+    output: 'yellow_out'
+  - platform: output
+    name: "Blue LED"
+    output: 'blue_out'  
 
 esp32_ble_tracker:
   scan_parameters:
