@@ -24,9 +24,10 @@ zbgw8201 是一款支持 zigbee 和 ble 的有线网关，用于这些设备接�
     - 返回"设备与服务"，打开新安装的"Zigbee Home Automation"下的"Silicon Labs EZSP"，点击"通过此设备添加设备"就可以添加您的zigbee设备了。
 3. 使用 z2m(zigbee2mqtt)，在配置文件中添加(记得替换ip地址)：<br>
 
-```     port: tcp://192.168.1.99:6636
+
+        port: tcp://192.168.1.99:6636
         adapter: ezsp
-```
+
 
 4. 使用蓝牙：
     - 添加设备："设备与服务"中会自动发现 "zbgw8201"，直接点按其下面的"配置"就可以启用内置 bluetooth-proxy了。
