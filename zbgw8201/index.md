@@ -131,4 +131,4 @@ bluetooth_proxy:
   active: true
 ```
 ### 其他
-- 系统有3个led指示灯，均可以自行配置，目前第一个（GPIO14)被用于显示esphome运行状态。
+- 
