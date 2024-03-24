@@ -69,7 +69,8 @@ esp32:
       ignore_efuse_mac_crc: false
 
 external_components:
-  - source: github://tube0013/esphome-stream-server-v2
+#  - source: github://tube0013/esphome-stream-server-v2
+  - source: github://oxan/esphome-stream-server
 
 ethernet:
   type: RTL8201
@@ -100,24 +101,25 @@ uart:
   id: uart_bus
   tx_pin: GPIO33
   rx_pin: GPIO32
-#  rx_buffer_size: 2048
+  rx_buffer_size: 1024
   baud_rate: 115200
 
 stream_server:
   uart_id: uart_bus
   port: 6636
-#  buffer_size: 2048
+  buffer_size: 2048
 
 binary_sensor:
-  - platform: homeassistant
-    id: ble_gateway_discovery
-    entity_id: binary_sensor.ble_gateway
+  - platform: stream_server
+    connected:
+      name: Connected
 
 sensor:
   - platform: uptime
     name: Uptime
     id: sys_uptime
     update_interval: 10s
+
   - platform: template
     id: esp_memory
     icon: mdi:memory
@@ -127,22 +129,33 @@ sensor:
     state_class: measurement
     entity_category: "diagnostic"
 
+  - platform: stream_server
+    connection_count:
+      name: Number of connections
+
 status_led:
   pin: 
     number: GPIO14
     inverted: true
 
 output:
+#  - platform: gpio
+#    pin: 14
+#    id: 'green_out'
+#    inverted: true
   - platform: gpio
-    pin: 4
+    pin: 33
     id: 'yellow_out'
     inverted: true
   - platform: gpio
-    pin: 16
+    pin: 32
     id: 'blue_out'
     inverted: true
 
 switch:
+#  - platform: output
+#    name: "Green LED"
+#    output: 'green_out'
   - platform: output
     name: "Yellow LED"
     output: 'yellow_out'
