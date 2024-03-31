@@ -91,7 +91,7 @@ logger:
 
 # Enable Home Assistant API
 api:
-  reboot_timeout: 0s
+  reboot_timeout: 1h
 ota:
 
 #web_server:
