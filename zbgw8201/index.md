@@ -117,6 +117,16 @@ binary_sensor:
   - platform: stream_server
     connected:
       name: Connected
+      id: connected
+      on_state:
+        then:
+          - lambda: |-
+              if (id(connected).state) {
+                id(yellow_led).turn_on();
+              } else {
+                id(yellow_led).turn_off();
+              }
+      
 
 sensor:
   - platform: uptime
@@ -140,30 +150,23 @@ status_led:
     number: GPIO14
     inverted: true
 
-output:
+switch:
 #  - platform: gpio
 #    pin: 14
-#    id: 'green_out'
+#    id: green_led
 #    inverted: true
   - platform: gpio
     pin: 4
-    id: 'yellow_out'
+    id: yellow_led
+    name: Yellow_LED
     inverted: true
+    internal: true
   - platform: gpio
     pin: 16
-    id: 'blue_out'
+    id: blue_led
+    name: Blue_LED
     inverted: true
-
-switch:
-#  - platform: output
-#    name: "Green LED"
-#    output: 'green_out'
-  - platform: output
-    name: "Yellow LED"
-    output: 'yellow_out'
-  - platform: output
-    name: "Blue LED"
-    output: 'blue_out'  
+ 
 
 esp32_ble_tracker:
   scan_parameters:
