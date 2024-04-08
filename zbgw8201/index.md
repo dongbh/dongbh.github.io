@@ -177,6 +177,10 @@ esp32_ble_tracker:
 bluetooth_proxy:
   active: true
 ```
+
+### 更新
+1. 20240408 添加zigbee连接指示：zibgee有连接后，黄色指示灯将常亮。
+
 ### 其他
 - 网关配有3个led指示灯，绿色用作了esphome系统状态，另外两个暂没有使用。
 - 网关的zigbee模块和esp32模块均采用外置天线方式，其中zigbee引到网关外面，esp32的天线贴在网关内部，两者接口相同，可以互换（如用蓝牙较多，则可以将esp32的天线外置）。
