@@ -18,3 +18,18 @@ This folder is files for usb2zigbee( EFR32MG13)
 | Firmware(6.10) | ELE_MG13_zb_ncp_115200_610_211112.gbl |None|
 | Firmware(7.3.2) | ncp-uart-hw-115200.7.3.2.gbl | Hardware|
 | Firmware(7.3.2) | ncp-uart-noflowcontrol-115200.7.3.2.gbl | None|
+
+Usage:
+1, Install universal-silabs-flasher
+```
+pip install universal-silabs-flasher
+```
+2, Download firmware
+3, Flashing firmware
+```
+universal-silabs-flasher --device com5 flash --firmware ncp-uart-hw-115200.7.3.2.gbl
+```
+4, Check Status
+```
+universal-silabs-flasher --device com5 probe
+```
