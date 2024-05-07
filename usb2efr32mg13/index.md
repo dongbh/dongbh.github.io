@@ -4,7 +4,7 @@ EmberZNet (EZSP) Zigbee 3.0 / Zigbee Coordinator (NCP) firmmware for Silicon Lab
 
 ## efr32mg13p732usb2zigbee
 
-This folder is files for usb2zigbee( EFR32MG13) 
+[This folder](https://github.com/dongbh/zigbee/tree/main/efr32mg13p732usb2zigbee) is files for usb2zigbee( EFR32MG13),  
 ![picture of diy usb dongle](../res/3d_pcb.png)
 
 | Configuration Parameter  | Value |Flow Control|
@@ -19,17 +19,18 @@ This folder is files for usb2zigbee( EFR32MG13)
 | Firmware(7.3.2) | ncp-uart-hw-115200.7.3.2.gbl | Hardware|
 | Firmware(7.3.2) | ncp-uart-noflowcontrol-115200.7.3.2.gbl | None|
 
-Usage:
-1, Install universal-silabs-flasher
+## Usage:
+1. Install universal-silabs-flasher
 ```
 pip install universal-silabs-flasher
 ```
-2, Download firmware
-3, Flashing firmware
+2. Download firmware
+
+3. Flashing firmware
 ```
 universal-silabs-flasher --device com5 flash --firmware ncp-uart-hw-115200.7.3.2.gbl
 ```
-4, Check Status
+4. Check Status
 ```
 universal-silabs-flasher --device com5 probe
 ```
