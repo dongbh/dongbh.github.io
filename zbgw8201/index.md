@@ -70,8 +70,8 @@ uart:
 ````
 
 ### esphome 配置文件
-[zbgw8201.yaml](zbgw8201.yaml)
-[zbgw8201-II.yaml](zbgw8201-II.yaml)
+- [zbgw8201.yaml](zbgw8201.yaml)
+- [zbgw8201-II.yaml](zbgw8201-II.yaml)
 
 ### 升级 ezsp 
 1. 下载 [universal-silabs-flasher](https://github.com/NabuCasa/universal-silabs-flasher)
