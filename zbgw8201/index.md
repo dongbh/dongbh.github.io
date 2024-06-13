@@ -83,8 +83,8 @@ universal-silabs-flasher  --device socket://192.168.1.99:6636  flash --firmware 
 
 ### 更新
 - 20240613 新增zbgw8201-II版本，gpio17输出clk, uart 的rx 更新为 GPIO35。
-- 20240408 添加zigbee连接指示：zibgee有连接后，黄色指示灯将常亮。
+- 20240601 新增POE版本，配置不变。
 
 ### 其他
-- 网关配有3个led指示灯，绿色用作了esphome系统状态，另外两个暂没有使用（见20240408更新）。
+- 网关配有3个led指示灯，绿色用作了esphome系统状态，黄色用于zigbee连接指示（zibgee有连接后，黄色指示灯将常亮），蓝色暂没有使用。
 - 网关的zigbee模块和esp32模块均采用外置天线方式，其中zigbee引到网关外面，esp32的天线贴在网关内部，两者接口相同，可以互换（如用蓝牙较多，则可以将esp32的天线外置）。
