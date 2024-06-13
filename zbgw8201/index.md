@@ -74,7 +74,12 @@ uart:
 [zbgw8201-II.yaml](zbgw8201-II.yaml)
 
 ### 升级 ezsp 
-
+1. 下载 [universal-silabs-flasher](https://github.com/NabuCasa/universal-silabs-flasher)
+2. 下载ezsp固件，请选择ncp-uart-noflowcontrol-xxxx版本，目前最新的是 [](https://github.com/dongbh/zigbee/tree/main/efr32mg13p732usb2zigbee)
+3. 假设设备的ip地址为 192.168.1.99, 下载的固件为当前文件夹下的 ncp-uart-noflowcontrol-115200.7.4.1.gbl，则执行如下命令升级：
+```
+universal-silabs-flasher  --device socket://192.168.1.99:6636  flash --firmware ncp-uart-noflowcontrol-115200.7.4.1.gbl
+```
 ### 更新
 1. 20240613 新增zbgw8201-II版本，gpio17输出clk, uart 的rx 更新为 GPIO35。
 2. 20240408 添加zigbee连接指示：zibgee有连接后，黄色指示灯将常亮。
