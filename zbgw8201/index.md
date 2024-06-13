@@ -34,7 +34,7 @@ zbgw8201 是一款支持 zigbee 和 ble 的有线网关，用于这些设备接�
     - 小米温度计2等ble设备会自动发现（小米温度计2的配置方法请自行查询）。
 5. 如果要重新配置固件，请根据下面的"esphome 配置文件"修改。
 
-### 核心配置
+### zbgw8201 核心配置
 ```
 ethernet:
   type: RTL8201
@@ -51,136 +51,34 @@ uart:
 
 leds: GPIO14, GPIO4, GPIO16
 ```
-### esphome 配置文件
+
+### zbgw8201-II 核心配置
 ```
-esphome:
-  name: zbgw8201
-
-esp32:
-  board: esp-wrover-kit
-  framework:
-    type: esp-idf
-    version: recommended
-    # Custom sdkconfig options
-    sdkconfig_options:
-      COMPILER_OPTIMIZATION_SIZE: y
-    # Advanced tweaking options
-    advanced:
-      ignore_efuse_mac_crc: false
-
-external_components:
-  - source: github://oxan/esphome-stream-server
-#  - source: github://tube0013/esphome-stream-server-v2
-
 ethernet:
   type: RTL8201
   mdc_pin: GPIO23
   mdio_pin: GPIO18
-  clk_mode: GPIO0_IN
-#  clk_mode: GPIO17_OUT
+  clk_mode: GPIO17_OUT
   phy_addr: 0
-  power_pin: GPIO17
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-#  ap:
-#    ssid: "Esphome Zb Bridge"
-
-#captive_portal:
-
-# Enable logging
-logger:
-
-# Enable Home Assistant API
-api:
-  reboot_timeout: 1h
-ota:
-
-#web_server:
-#  port: 80
+  power_pin: GPIO12
 
 uart:
   id: uart_bus
   tx_pin: GPIO33
-  rx_pin: GPIO32
-  rx_buffer_size: 1024
+  rx_pin: GPIO35
   baud_rate: 115200
+````
 
-stream_server:
-  uart_id: uart_bus
-  port: 6636
-  buffer_size: 2048
+### esphome 配置文件
+[zbgw8201.yaml](zbgw8201.yaml)
+[zbgw8201-II.yaml](zbgw8201-II.yaml)
 
-binary_sensor:
-  - platform: homeassistant
-    id: ble_gateway_discovery
-    entity_id: binary_sensor.ble_gateway
-  - platform: stream_server
-    connected:
-      name: Connected
-      id: connected
-      on_state:
-        then:
-          - lambda: |-
-              if (id(connected).state) {
-                id(yellow_led).turn_on();
-              } else {
-                id(yellow_led).turn_off();
-              }
-      
-
-sensor:
-  - platform: uptime
-    name: Uptime
-    id: sys_uptime
-    update_interval: 10s
-  - platform: template
-    id: esp_memory
-    icon: mdi:memory
-    name: ESP Free Memory
-    lambda: return heap_caps_get_free_size(MALLOC_CAP_INTERNAL) / 1024;
-    unit_of_measurement: 'kB'
-    state_class: measurement
-    entity_category: "diagnostic"
-  - platform: stream_server
-    connection_count:
-      name: Number of connections
-
-status_led:
-  pin: 
-    number: GPIO14
-    inverted: true
-
-switch:
-#  - platform: gpio
-#    pin: 14
-#    id: green_led
-#    inverted: true
-  - platform: gpio
-    pin: 4
-    id: yellow_led
-    name: Yellow_LED
-    inverted: true
-    internal: true
-  - platform: gpio
-    pin: 16
-    id: blue_led
-    name: Blue_LED
-    inverted: true
- 
-
-esp32_ble_tracker:
-  scan_parameters:
-    interval: 1100ms
-    window: 1100ms
-    active: true
-
-bluetooth_proxy:
-  active: true
-```
+### 升级 ezsp 
 
 ### 更新
-1. 20240408 添加zigbee连接指示：zibgee有连接后，黄色指示灯将常亮。
+1. 20240613 新增zbgw8201-II版本，gpio17输出clk, uart 的rx 更新为 GPIO35。
+2. 20240408 添加zigbee连接指示：zibgee有连接后，黄色指示灯将常亮。
 
 ### 其他
-- 网关配有3个led指示灯，绿色用作了esphome系统状态，另外两个暂没有使用。
+- 网关配有3个led指示灯，绿色用作了esphome系统状态，另外两个暂没有使用（见20240408更新）。
 - 网关的zigbee模块和esp32模块均采用外置天线方式，其中zigbee引到网关外面，esp32的天线贴在网关内部，两者接口相同，可以互换（如用蓝牙较多，则可以将esp32的天线外置）。
