@@ -13,11 +13,10 @@ EmberZNet (EZSP) Zigbee 3.0 / Zigbee Coordinator (NCP) firmmware for Silicon Lab
 | RX  | PA1 ||
 | RTS | PF4 ||
 | CTS | PA2 ||
-| FlowControl| NO||
 | Bootloader | bootloader-uart-xmodem.s37 ||
 | Firmware(6.10) | ELE_MG13_zb_ncp_115200_610_211112.gbl |None|
-| Firmware(7.3.2) | ncp-uart-hw-115200.7.3.2.gbl | Hardware|
-| Firmware(7.3.2) | ncp-uart-noflowcontrol-115200.7.3.2.gbl | None|
+| Firmware(7.4.3) | ncp-uart-hw-115200-7.4.3.gbl | Hardware|
+| Firmware(7.4.3) | ncp-uart-noflowcontrol-115200-7.4.3.gbl | None|
 
 ## Usage:
 1. Install universal-silabs-flasher
