@@ -1,5 +1,7 @@
 # zbgw8201-II.yaml
-# using gpio17 to output clk.
+# changes:
+#    power pin from 17 to 12;
+#    rx  pin from 32 to 35;
 esphome:
   name: zbgw8201
   project: 
@@ -7,7 +9,7 @@ esphome:
     version: "1.0"
 
 dashboard_import:
-  package_import_url: github://dongbh/zbgw8201/zbgw8201.yaml
+  package_import_url: github://dongbh/dongbh.github.io/zbgw8201/zbgw8201-II.yaml
 
 esp32:
   board: esp-wrover-kit
@@ -31,8 +33,8 @@ ethernet:
   type: RTL8201
   mdc_pin: GPIO23
   mdio_pin: GPIO18
-#  clk_mode: GPIO0_IN
-  clk_mode: GPIO17_OUT
+  clk_mode: GPIO0_IN
+#  clk_mode: GPIO17_OUT
   phy_addr: 0
   power_pin: GPIO12
 

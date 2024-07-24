@@ -1,5 +1,4 @@
-# zbgw8201-II.yaml
-# using gpio17 to output clk.
+# zbgw8201.yaml
 esphome:
   name: zbgw8201
   project: 
@@ -31,10 +30,9 @@ ethernet:
   type: RTL8201
   mdc_pin: GPIO23
   mdio_pin: GPIO18
-#  clk_mode: GPIO0_IN
-  clk_mode: GPIO17_OUT
+  clk_mode: GPIO0_IN
   phy_addr: 0
-  power_pin: GPIO12
+  power_pin: GPIO17
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
 #  ap:
@@ -56,7 +54,7 @@ ota:
 uart:
   id: uart_bus
   tx_pin: GPIO33
-  rx_pin: GPIO35
+  rx_pin: GPIO32
 #  rx_buffer_size: 1024
   baud_rate: 115200
 

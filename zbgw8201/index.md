@@ -58,7 +58,7 @@ ethernet:
   type: RTL8201
   mdc_pin: GPIO23
   mdio_pin: GPIO18
-  clk_mode: GPIO17_OUT
+  clk_mode: GPIO0_IN
   phy_addr: 0
   power_pin: GPIO12
 
@@ -82,7 +82,7 @@ universal-silabs-flasher  --device socket://192.168.1.99:6636  flash --firmware 
 ```
 
 ### 更新
-- 20240613 新增zbgw8201-II版本，gpio17输出clk, uart 的rx 更新为 GPIO35。
+- 20240613 新增zbgw8201-II版本，power-pin 调整为GPIO12, uart 的rx 调整为 GPIO35。
 - 20240601 新增POE版本，配置不变。
 
 ### 其他
