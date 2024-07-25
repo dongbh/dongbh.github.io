@@ -34,29 +34,29 @@ zbgw7628 是一款支持 zigbee 的有线网关，用于这些设备接入 home 
 
 
 ### 使用方法
-1. 接通电源和网线，等待网关获取ip地址（网关名字为 zbgw7628，可以从路由器上查看，也可以运行 ping zbgw7628.local 来确认地址，以下假设获取的地址为 192.168.1.99。
+1. 通过POE交换机接上网线（86面板版本需插在面板背面接口，对于不支持POE的桌面版还需要接入typec电源），等待网关获取ip地址（时间约1分钟到2分钟，网关名字为 zbgw7628，可以从路由器上查看，也可以运行 ping zbgw7628.local 来确认地址，以下假设获取的地址为 192.168.1.99。
 2. 使用ZHA(Zigbee Home Automation):
     - 打开homeassistant网页，依次选择进入左边栏下面的“配置——设备与服务——添加集成”，输入"ZHA"后，选择"Zigbee Home Automation"，如果出现"你想要添加什么？"页面，继续选择"Zigbee Home Automation"。
     - 在"无线射频类型"中选择 "EZSP"。
     - 在"串口设置"中，输入串口设备路径：socket://192.168.1.99:6636 , 记得替换为您第一步中查到的地址，端口速度 和 数据流控制 不用管，用缺省值。
-    - 提交后会出现"网络构成"，根据需要选择即可（如选择"删除网络设置并创建新网络"）。
+    - 提交后会出现"网络构成"，根据需要选择即可（建议选择 "删除网络设置并创建新网络"）。
     - 等待完成。
     - 返回"设备与服务"，打开新安装的"Zigbee Home Automation"下的"Silicon Labs EZSP"，点击"通过此设备添加设备"就可以添加您的zigbee设备了。
-3. 使用 z2m(zigbee2mqtt)，在配置文件中添加(记得替换ip地址)：<br>
+3. 使用 z2m(zigbee2mqtt)，在配置文件中添加(记得替换ip地址, ezsp也可以换成 ember)：<br>
     ``` port: tcp://192.168.1.99:6636
         adapter: ezsp
     ```
 
 ### 升级 ezsp 
 1. 下载 [universal-silabs-flasher](https://github.com/NabuCasa/universal-silabs-flasher)
-2. 下载ezsp固件，请选择ncp-uart-noflowcontrol-xxxx版本，目前最新的是 [ncp-uart-noflowcontrol-115200.7.4.1.gbl](https://github.com/dongbh/zigbee/tree/main/efr32mg13p732usb2zigbee)
+2. 下载ezsp固件，请选择ncp-uart-noflowcontrol-xxxx版本，目前最新的是 [ncp-uart-mgm210l-noflowcontrol-115200.7.4.3.gbl](https://github.com/dongbh/zigbee/tree/main/mgm210l)
 3. 假设设备的ip地址为 192.168.1.99, 下载的固件为当前文件夹下的 ncp-uart-noflowcontrol-115200.7.4.1.gbl，则执行如下命令升级：
 ```
-universal-silabs-flasher  --device socket://192.168.1.99:6636  flash --firmware ncp-uart-noflowcontrol-115200.7.4.1.gbl
+universal-silabs-flasher  --device socket://192.168.1.99:6636  flash --firmware ncp-uart-mgm210l-noflowcontrol-115200.7.4.3.gbl
 ```
 
 ### 升级固件
-1. zbgw7628升级固件时将ip地址固定为 192.168.1.101, 所以先将电脑的ip地址设定为 192.168.1.x, 如192.168.1.100, 子网掩码255.255.255.0，其他可以不设。
-2. 接上网线，接通电源（如果是POE版，则只插上POE网线）。打开电源开关后（7秒之内）马上按住复位键，看到led灯会闪亮后松开，此时系统进入升级模式, 。
+1. zbgw7628升级固件时的ip地址固定为 192.168.1.101, 所以先将电脑的ip地址设定为 192.168.1.x, 如192.168.1.100, 子网掩码255.255.255.0，其他可以不设。
+2. 接上网线，接通电源（如果是POE版，则只插上POE网线）后（7秒之内）马上按住复位键，看到led灯会闪亮后松开，此时系统进入升级模式, 。
 3. 在浏览器中输入设备的网址： http://192.168.1.101，根据页面提示可以分别更新固件和u-boot。u-boot一般不建议升级。
 4. 系统启动一般需要60-120秒。
