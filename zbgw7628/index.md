@@ -49,7 +49,7 @@ zbgw7628 是一款支持 zigbee 的有线网关，用于这些设备接入 home 
 
 ### 升级 ezsp 
 1. 下载 [universal-silabs-flasher](https://github.com/NabuCasa/universal-silabs-flasher)。
-2. 下载ezsp固件，请选择ncp-uart-noflowcontrol-xxxx版本，目前最新的是 [ncp-uart-mgm210l-noflowcontrol-115200.7.4.3.gbl](https://github.com/dongbh/zigbee/ncp-uart-mgm210l-noflowcontrol-115200.7.4.3.gbl)。
+2. 下载ezsp固件，请选择[ncp-uart-mg210l-noflowcontrol-XXXXX-115200.gbl](https://github.com/dongbh/zigbee)版本，目前最新的是7.4.3。
 3. 假设设备的ip地址为 192.168.1.99, 下载的固件为当前文件夹下的 ncp-uart-noflowcontrol-115200.7.4.1.gbl，则执行如下命令升级：
 ```
 universal-silabs-flasher  --device socket://192.168.1.99:6636  flash --firmware ncp-uart-mgm210l-noflowcontrol-115200.7.4.3.gbl
