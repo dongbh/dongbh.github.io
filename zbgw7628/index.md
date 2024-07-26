@@ -13,6 +13,7 @@ zbgw7628 是一款支持 zigbee 的有线网关，用于这些设备接入 home 
 - 分为86面板版和桌面版。86面板版本基于CMCC 300AP改制，只支持POE供电。桌面版支持 POE 或 type-c 供电，![体积小巧](/res/zbgw8201.png "网关照片")
 
 ### 86面板板设备说明：
+![alt text](/res/zbgw7628-3.jpg) ![alt text](/res/zbgw7628-4.jpg) ![alt text](/res/zbgw7628-2.jpg) ![alt text](/res/zbgw7628-0.png)
 - 后面RJ45插座：用于接入到POE交换机。
 - 面板下面RJ45插座：可以用于接入PC。
 - 面板左侧后右侧分别有电源开关键和复位键。
