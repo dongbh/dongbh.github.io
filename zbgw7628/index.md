@@ -17,7 +17,7 @@ zbgw7628 是一款支持 zigbee 的有线网关，用于这些设备接入 home 
  接口说明：<br> - 后面RJ45插座：用于接入到POE交换机。<br> - 面板下面RJ45插座：可以用于接入PC。<br> - 面板两侧后右侧分别有电源和复位键。<br> led指示灯：<br> - power: 开机后常亮。<br> - SYS: 系统心跳指示，闪烁表示正常。<br> - LAN：网线正常后常亮，有数据传输会闪烁。<br> - WIFI: zigbee 数据传输时会闪烁。 |  ![alt text](/res/zbgw7628-0.jpg) ![alt text](/res/zbgw7628-4.jpg) ![alt text](/res/zbgw7628-3.jpg) ![alt text](/res/zbgw7628-2.png)  
 
 
-### 桌面版设备说明：
+### 桌面版设备
 接口说明：<br> - RJ45插座：用于接入到(POE)交换机。<br> - type-c插座：设备供电（5-12V，500ma), POE设备不必再供电。<br>led指示灯：<br>- 绿色: 电源指示，开机后常亮。<br>- 黄色: 系统心跳指示，闪烁表示正常。<br> - 蓝色：zigbee数据传输会闪烁。 |  ![体积小巧](/res/zbgw8201.png "网关照片")
 
 
