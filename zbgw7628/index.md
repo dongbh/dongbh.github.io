@@ -10,15 +10,15 @@ zbgw7628 是一款支持 zigbee 的有线网关，用于这些设备接入 home 
 - zigbee模块外置高增益天线；
 - 支持 zha 和 zigbee2mqtt；
 - 配置文件附后，可以自行编译升级；
-- 分为桌面版(zbgw7628-1) 和 86面板版（zbgw7628-2)。86面板版本基于CMCC 300AP改制，只支持POE供电。桌面版支持 POE 或 type-c 供电。
+- 分为桌面版(zbgw7628-I) 和 86面板版（zbgw7628-II)。86面板版本基于CMCC 300AP改制，只支持POE供电。桌面版支持 POE 或 type-c 供电。
 
 ### 桌面版设备(zbgw7628-I)
 
-接口说明：<br> - RJ45插座：用于接入到(POE，可选)交换机。<br> - type-c插座：设备供电（5-12V，500ma), 和POE供电二选一。<br>led指示灯：<br>- 绿色: 系统心跳指示，闪烁表示正常。<br>- 黄色: 有线网络指示，常亮表示有网络接通，闪烁表示传输数据。<br> - 蓝色：zigbee数据传输会闪烁。 |  ![体积小巧](/res/zbgw8201.png )![体积小巧](/res/zbgw7628-10.jpg )
+接口说明：<br> - RJ45插座：接入到(POE，可选)交换机。<br> - type-c插座：设备供电（5-12V，500ma), 和POE供电二选一。<br>led指示灯：<br>- LED1：绿色，系统心跳指示，闪烁表示正常。<br>- LED2：绿色，有线网络指示，网线正常后常亮，有数据传输会闪烁。。<br> - LED3：蓝色，zigbee数据传输会闪烁。 |  ![体积小巧](/res/zbgw8201.png )![体积小巧](/res/zbgw7628-10.jpg )
 
 ### 86面板板设备(zbgw7628-II)
 
- 接口说明：<br> - 后面RJ45插座：用于接入到POE交换机。<br> - 面板下面RJ45插座：可以用于接入PC。<br> - 面板两侧后右侧分别有电源和复位键。<br> led指示灯：<br> - power: 开机后常亮。<br> - SYS: 系统心跳指示，闪烁表示正常。<br> - LAN：网线正常后常亮，有数据传输会闪烁。<br> - WIFI: zigbee 数据传输时会闪烁。 |  ![alt text](/res/zbgw7628-0.png) ![alt text](/res/zbgw7628-4.jpg) ![alt text](/res/zbgw7628-3.jpg) ![alt text](/res/zbgw7628-2.jpg)  
+ 接口说明：<br> - 后面RJ45插座：上连接口，用于接入到POE交换机。<br> - 面板下面RJ45插座：下连接口，可以接入PC到网络。<br> - 面板两侧后右侧分别有电源和复位键。<br> led指示灯：<br> - power: 开机后常亮。<br> - SYS: 系统心跳指示，闪烁表示正常。<br> - LAN：网线正常后常亮，有数据传输会闪烁。<br> - WIFI: zigbee 数据传输时会闪烁。 |  ![alt text](/res/zbgw7628-0.png) ![alt text](/res/zbgw7628-4.jpg) ![alt text](/res/zbgw7628-3.jpg) ![alt text](/res/zbgw7628-2.jpg)  
 
 ### 使用方法
 1. 插入网线（zbgw7628-II需插在面板背面接口，交换机需支持POE。对于不支持POE的zbgw7628-I还需要接入typec电源），等待网关获取ip地址（时间约1分钟到2分钟，网关名字为 zbgw7628，可以从路由器上查看，也可以运行 ping zbgw7628.local 来确认地址，以下假设获取的地址为 192.168.1.99。
