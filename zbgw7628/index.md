@@ -5,7 +5,7 @@ zbgw7628 是一款支持 zigbee 的有线网关，用于这些设备接入 home 
 ### 主要特点
 
 - 处理器为mt7628或mt7688，操作系统为openwrt 23.05, 稳定可靠；
-- zigbee 模块采用 efr32mg21, 信号稳定，带机量大；
+- zigbee 模块采用 mgm210l, 信号稳定，带机量大；
 - u-boot、系统固件和zigbee固件均支持升/降级；
 - zigbee模块外置高增益天线；
 - 支持 zha 和 zigbee2mqtt；
@@ -14,7 +14,7 @@ zbgw7628 是一款支持 zigbee 的有线网关，用于这些设备接入 home 
 
 ### 桌面版设备(zbgw7628-I)
 
-接口说明：<br> - RJ45插座：用于接入到(POE，可选)交换机。<br> - type-c插座：设备供电（5-12V，500ma), 和POE供电二选一。<br>led指示灯：<br>- 绿色: 系统心跳指示，闪烁表示正常。<br>- 黄色: 有线网络指示，常亮表示有网络接通，闪烁表示传输数据。<br> - 蓝色：zigbee数据传输会闪烁。 |  ![体积小巧](/res/zbgw8201.png )![体积小巧](/res/zbgw7628-10.jpg )
+接口说明：<br> - RJ45插座：用于接入到(POE，可选)交换机。<br> - type-c插座：设备供电（5-12V，500ma), 和POE供电二选一即可。<br>led指示灯：<br>- 绿色: 系统心跳指示，闪烁表示正常。<br>- 黄色: 有线网络指示，常亮表示有网络接通，闪烁表示传输数据。<br> - 蓝色：zigbee数据传输会闪烁。 |  ![体积小巧](/res/zbgw8201.png )![体积小巧](/res/zbgw7628-10.jpg )
 
 ### 86面板板设备(zbgw7628-II)
 
@@ -29,9 +29,10 @@ zbgw7628 是一款支持 zigbee 的有线网关，用于这些设备接入 home 
     - 提交后会出现"网络构成"，根据需要选择即可（建议选择 "删除网络设置并创建新网络"）。
     - 等待完成。
     - 返回"设备与服务"，打开新安装的"Zigbee Home Automation"下的"Silicon Labs EZSP"，点击"通过此设备添加设备"就可以添加您的zigbee设备了。
-3. 使用 z2m(zigbee2mqtt)，在配置文件中添加(记得替换ip地址, ezsp也可以换成 ember)：<br>
-    ``` port: tcp://192.168.1.99:6636
-        adapter: ezsp
+3. 使用 z2m(zigbee2mqtt)，在配置文件中添加(记得替换ip地址, ember 也可以换成 ezsp, z2m新版推荐 ember)：<br>
+    ```
+	port: tcp://192.168.1.99:6636
+        adapter: ember
     ```
 
 ### 升级 ezsp 
