@@ -32,7 +32,7 @@ zbgw7628 是一款支持 zigbee 的有线网关，用于这些设备接入 home 
 3. 使用 z2m(zigbee2mqtt)，在配置文件中添加(记得替换ip地址, ember 也可以换成 ezsp, z2m新版推荐 ember)：<br>
     ```
 	port: tcp://192.168.1.99:6636
-        adapter: ember
+	adapter: ember
     ```
 
 ### 升级 ezsp 
