@@ -18,7 +18,7 @@ zbgw7628 是一款支持 zigbee 的有线网关，用于这些设备接入 home 
 
 ### 86面板板设备(zbgw7628-II)
 
- 接口说明：<br> - 后面RJ45插座：用于接入到POE交换机。<br> - 面板下面RJ45插座：可以用于接入PC。<br> - 面板两侧后右侧分别有电源和复位键。<br> led指示灯：<br> - power: 开机后常亮。<br> - SYS: 系统心跳指示，闪烁表示正常。<br> - LAN：网线正常后常亮，有数据传输会闪烁。<br> - WIFI: zigbee 数据传输时会闪烁。 |  ![alt text](/res/zbgw7628-0.png) ![alt text](/res/zbgw7628-4.jpg) ![alt text](/res/zbgw7628-3.jpg) ![alt text](/res/zbgw7628-2.jpg)  
+ 接口说明：<br> - 后面RJ45插座：用于接入到POE交换机。<br> - 面板下面RJ45插座：可以用于接入PC。<br> - 面板两侧后右侧分别有电源和复位键。<br> led指示灯：<br> - power: 开机后常亮。<br> - SYS: 系统心跳指示，闪烁表示正常。<br> - LAN：网线正常后常亮，有数据传输会闪烁。<br> - WIFI: zigbee 数据传输时会闪烁。 |  ![alt text](/res/zbgw7628-1.jpg) ![alt text](/res/zbgw7628-4.jpg) ![alt text](/res/zbgw7628-3.jpg) ![alt text](/res/zbgw7628-2.jpg)  
 
 ### 使用方法
 1. 插入网线（zbgw7628-II需插在面板背面接口，交换机需支持POE。对于不支持POE的zbgw7628-I还需要接入typec电源），等待网关获取ip地址（时间约1分钟到2分钟，网关名字为 zbgw7628，可以从路由器上查看，也可以运行 ping zbgw7628.local 来确认地址，以下假设获取的地址为 192.168.1.99。
