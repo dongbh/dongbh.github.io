@@ -18,7 +18,7 @@ EmberZNet (EZSP) Zigbee 3.0 / Zigbee Coordinator (NCP) firmmware for Silicon Lab
 | Firmware(7.4.3) | ncp-uart-hw-115200-7.4.3.gbl | Hardware|
 | Firmware(7.4.3) | ncp-uart-noflowcontrol-115200-7.4.3.gbl | None|
 
-## Usage:
+## How to Flash:
 1. Install universal-silabs-flasher
 ```
 pip install universal-silabs-flasher
