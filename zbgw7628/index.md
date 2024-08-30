@@ -10,7 +10,7 @@ zbgw7628 是一款支持 zigbee 的有线网关，用于这些设备接入 home 
 - zigbee模块外置高增益天线；
 - 支持 zha 和 zigbee2mqtt；
 - 配置文件附后，可以自行编译升级；
-- 分为桌面版(zbgw7628-1) 和 86面板版（zbgw7628-2)。86面板版本基于CMCC 300AP改制，只支持POE供电。桌面版支持 POE 或 type-c 供电。
+- 分为桌面版(zbgw7628-I) 和 86面板版（zbgw7628-II)。86面板版本基于CMCC 300AP改制，只支持POE供电。桌面版支持 POE 或 type-c 供电。
 
 ### 桌面版设备(zbgw7628-I)
 
