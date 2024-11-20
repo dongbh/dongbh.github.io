@@ -4,7 +4,7 @@
 
 ### Supported boards:
 ---
-- DUSUN dsgw-210
+- Dusun dsgw-210
 
 
 ### Read First:
