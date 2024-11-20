@@ -6,9 +6,8 @@
 
 ### Read First:
 ---
-1. This firmware uses mainline u-boot. If you want to flash it back to original firmware, You NEED use Option 1 bellow to re-flash it.
-2. The serial changes from 115200 to 1500000n8, you’d better use a cp2104 usb2uart bridge (cp2102 won’t work).
-
+1. This firmware uses mainline u-boot. If you want to flash it back to the original firmware, You NEED use **Option 1** below to re-flash it.
+2. The serial changes from 115200n8 to 1500000n8, you’d better use a cp2104 usb2uart bridge (cp2102 won’t work).
 
 ### Download flash tools and firmware
 ---
