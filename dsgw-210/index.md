@@ -1,11 +1,8 @@
 ## Flash HomeAssistant OS into dsgw-210
 
-
-
 ### Supported boards:
 ---
 - Dusun dsgw-210
-
 
 ### Read First:
 ---
@@ -34,7 +31,6 @@
 ### Wait HAOS to startup
 ---
 1. Now lookup the ip address of the box (the box gets ip using dhcp, ping homeassistant -4 or just lookup it from the dhcp server).
-
 2. Browse http://ip_of_the_box:4357 and then http://ip_of_the_box:8123.
 
 ## Hardware support
