@@ -17,15 +17,15 @@
 ### Flash the box
 ---
 1. Launch RKDevTool, and prepare to connect the PC to the dsgw-210 (hereinafter called the "box") using a type-c cable.
-  ![picture of diy usb dongle](../res/dsgw-210-5.png)
+  ![connect the pc to the box](../res/dsgw-210-5.png)
 2. Make the box into MASKROM mode:
-  ![picture of diy usb dongle](../res/dsgw-210-1.png)
+  ![maskrom mode](../res/dsgw-210-1.png)
 3. Option 1: Provide 3.3V voltage (eg. 3.3v from usb2uart bridge ) to the point and then connect to the box using the type-c cable, and it will show in MaskRom mode.
-  ![picture of diy usb dongle](../res/dsgw-210-2.jpg)
+  ![maskrom probe](../res/dsgw-210-2.jpg)
 4. Option 2: Connect to the box using the type-c cable, it will show as an "ADB device", click "Advanced Function" tab, and then click "Go Maskrom". 
-  ![picture of diy usb dongle](../res/dsgw-210-3.png)
+  ![from adb to maskrom](../res/dsgw-210-3.png)
 5. Click the "Download Image" tab, and input as follows, check the "Write by Address" checkbox and then click "Run" button. The list box on the right shows the flashing progress. When flashed to 100%, the box will restart, and the green leds turns on about 3 seconds later, wait 1-2 minutes for the box to startup.
-  ![picture of diy usb dongle](../res/dsgw-210-4.png)
+  ![flashing the box](../res/dsgw-210-4.png)
  
 ### Wait for HAOS to startup
 ---
