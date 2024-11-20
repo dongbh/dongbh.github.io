@@ -44,10 +44,10 @@
 ## Hardware support
 ---
 ### Working hardware
-    Serial / Uart
-    Ethernet
+    - Serial / Uart
+    - Ethernet
 
 ### TODO
-    Wifi
-    Bluetooth
+    - Wifi
+    - Bluetooth
 	
