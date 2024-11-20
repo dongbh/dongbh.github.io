@@ -12,7 +12,7 @@
 ### Download flash tools and firmware
 ---
 1. Install rockchip flash tools as in dusun wiki [dsgw-210](https://wiki.dusuniot.com/iot_gateway_with_applications/dsgw-210-rk3328-home-assistant-gateway/quick-start-guide). I prefer a recent version(which has a checkbox: "Write by Address", download [RKDevTool_Release_v3.31.zip](https://download.t-firefly.com/product/Board/RK3588/Tool/Window/RKDevTool_Release_v3.31.zip) and [DriverAssitant_v5.1.1.zip](https://download.t-firefly.com/product/Board/RK3588/Tool/Window/DriverAssitant_v5.1.1.zip) from [firefly](https://www.t-firefly.com/doc/download/183.html) site .
-1. Download the loader (MiniLoaderAll.bin or rk3328_loader_v1.14.249.bin) and firmware (haos_dsgw-210-13.1.img.xz), unzip the firmware.
+1. Download the loader [rk3328_loader_v1.14.249.bin](https://github.com/dongbh/operating-system/releases/download/13.1/rk3328_loader_v1.14.249.bin) and firmware [haos_dsgw-210-13.1.img.xz](https://github.com/dongbh/operating-system/releases/download/13.1/haos_dsgw-210-13.1.img.xz), unzip the firmware.
 
 ### Flash the box
 ---
