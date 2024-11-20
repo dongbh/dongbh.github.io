@@ -20,7 +20,7 @@
   ![connect the pc to the box](../res/dsgw-210-5.png)
 1. Make the box into MASKROM mode:
   ![maskrom mode](../res/dsgw-210-1.png)
-1. Option 1: Provide 3.3V voltage (eg. 3.3v from usb2uart bridge ) to the point and then connect to the box using the type-c cable, and it will show in MaskRom mode.
+1. Option 1: Provide 3.3V voltage (eg. 3.3v from usb2uart bridge ) to the point and then connect to the box using the type-c cable, and it will show in MaskRom mode, then remov the 3.3v voltage.
   ![maskrom probe](../res/dsgw-210-2.jpg)
 1. Option 2: Connect to the box using the type-c cable, it will show as an "ADB device", click "Advanced Function" tab, and then click "Go Maskrom". 
   ![from adb to maskrom](../res/dsgw-210-3.png)
@@ -35,6 +35,12 @@
 ## Update HAOS
 1. Just click the UPDATE button when prompted.
   ![flashing the box](../res/dsgw-210-6.png)
+
+## Files list
+- RKDevTool: [RKDevTool_Release_v3.31.zip](https://download.t-firefly.com/product/Board/RK3588/Tool/Window/RKDevTool_Release_v3.31.zip) 
+- DriverAssistant: [DriverAssitant_v5.1.1.zip](https://download.t-firefly.com/product/Board/RK3588/Tool/Window/DriverAssitant_v5.1.1.zip)
+- loader: [rk3328_loader_v1.14.249.bin](https://github.com/dongbh/operating-system/releases/download/13.1/rk3328_loader_v1.14.249.bin) 
+- firmware: [haos_dsgw-210-13.1.img.xz](https://github.com/dongbh/operating-system/releases/download/13.1/haos_dsgw-210-13.1.img.xz)
 
 ## Hardware support
 
