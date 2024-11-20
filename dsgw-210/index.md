@@ -25,6 +25,12 @@
 1. Option 2: Connect to the box using the type-c cable, it will show as an "ADB device", click "Advanced Function" tab, and then click "Go Maskrom". 
   ![from adb to maskrom](../res/dsgw-210-3.png)
 1. Click the "Download Image" tab, and input as follows, check the "Write by Address" checkbox and then click "Run" button. The list box on the right shows the flashing progress. When flashed to 100%, the box will restart, and the green leds turns on about 5 seconds later, wait 1-2 minutes for the box to startup.
+
+| Address     | Path |
+| ----------- | ----------- |
+| 0xCCCCCCCC   | d:\rk3323\rk3328_loader_v1.14.249.bin       |
+| 0x00000000   | d:\rk3328\haos_dsgw-210-13.1.img.xz |
+
   ![flashing the box](../res/dsgw-210-4.png)
  
 ### Wait for HAOS to startup
