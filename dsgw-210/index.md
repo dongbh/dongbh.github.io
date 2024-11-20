@@ -21,23 +21,24 @@ DUSUN dsgw-210
 
 ---
 
-1. Install rockchip flash tools as in dusun wiki [dsgw-210](https://wiki.dusuniot.com/iot_gateway_with_applications/dsgw-210-rk3328-home-assistant-gateway/quick-start-guide). I prefer a recent version(which has a checkbox: "Write by Address", download from [RKDevTool_Release_v3.31.zip](https://download.t-firefly.com/product/Board/RK3588/Tool/Window/RKDevTool_Release_v3.31.zip) and [DriverAssitant_v5.1.1.zip](https://download.t-firefly.com/product/Board/RK3588/Tool/Window/DriverAssitant_v5.1.1.zip). Both from firefly site [firefly](https://www.t-firefly.com/doc/download/183.html).
-2. Download the loader ( MiniLoaderAll.bin or rk3328_loader_v1.14.249.bin ) and firmware ( haos_dsgw-210-13.1.img.xz), unzip the firmware.
+1. Install rockchip flash tools as in dusun wiki [dsgw-210](https://wiki.dusuniot.com/iot_gateway_with_applications/dsgw-210-rk3328-home-assistant-gateway/quick-start-guide). I prefer a recent version(which has a checkbox: "Write by Address", download [RKDevTool_Release_v3.31.zip](https://download.t-firefly.com/product/Board/RK3588/Tool/Window/RKDevTool_Release_v3.31.zip) and [DriverAssitant_v5.1.1.zip](https://download.t-firefly.com/product/Board/RK3588/Tool/Window/DriverAssitant_v5.1.1.zip) from [firefly](https://www.t-firefly.com/doc/download/183.html) site .
+2. Download the loader (MiniLoaderAll.bin or rk3328_loader_v1.14.249.bin) and firmware (haos_dsgw-210-13.1.img.xz), unzip the firmware.
 
 
 ### Flash the box
 
 ---
 
-1. Launch RKDevTool.
-2. Make the dsgw-210 box into MASKROM mode:
+1. Launch RKDevTool, and prepare to connect the PC to the dsgw-210 (hereinafter called the "box") using a type-c cable.
+ ![picture of diy usb dongle](../res/dsgw-210-5.png)
+2. Make the box into MASKROM mode:
  ![picture of diy usb dongle](../res/dsgw-210-1.png)
-3. Option 1: Provide 3.3V voltage (eg. 3.3v from usb2uart ) to the point and then connect to the type-c port, and it will show in MaskRom mode.
-  ![picture of diy usb dongle](../res/dsgw-210-2.png)
+3. Option 1: Provide 3.3V voltage (eg. 3.3v from usb2uart ) to the point and then connect to the type-c cable, and it will show in MaskRom mode.
+  ![picture of diy usb dongle](../res/dsgw-210-2.jpg)
 
-4. Option 2: Connect to the type-c port, it will show as an "ADB device", then click "Advanced Function" tab, then click "Go Maskrom". 
+4. Option 2: Connect to the type-c cable, it will show as an "ADB device", click "Advanced Function" tab, and then click "Go Maskrom". 
    ![picture of diy usb dongle](../res/dsgw-210-3.png)
-5. Click the "Download Image" tab, and input as follows, check the "Write by Address" checkbox and then Press "Run". The right list box shows the flashing progress. When flashed to 100%, the dsgw-210 box will restart, and the green leds turns on about 3 seconds later, wait 1-2 minutes for the box startup.
+5. Click the "Download Image" tab, and input as follows, check the "Write by Address" checkbox and then Press "Run". The list box on the right shows the flashing progress. When flashed to 100%, the box will restart, and the green leds turns on about 3 seconds later, wait 1-2 minutes for the box to startup.
   ![picture of diy usb dongle](../res/dsgw-210-4.png)
  
 
@@ -45,9 +46,9 @@ DUSUN dsgw-210
 
 ---
 
-1. Now use ping command to find the box ip ( ping homeassistant -4) or just lookup it from the dhcp server.
+1. Now lookup the ip address of the box (the box gets ip using dhcp, ping homeassistant -4 or just lookup it from the dhcp server).
 
-2. Browse http://ip_of_the_box:4357 and then http://ip_of_the_box:8123. 
+2. Browse http://ip_of_the_box:4357 and then http://ip_of_the_box:8123.
 
 
 ## Hardware support
