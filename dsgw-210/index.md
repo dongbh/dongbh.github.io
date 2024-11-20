@@ -27,7 +27,7 @@
 5. Click the "Download Image" tab, and input as follows, check the "Write by Address" checkbox and then click "Run" button. The list box on the right shows the flashing progress. When flashed to 100%, the box will restart, and the green leds turns on about 3 seconds later, wait 1-2 minutes for the box to startup.
   ![picture of diy usb dongle](../res/dsgw-210-4.png)
  
-### Wait HAOS to startup
+### Wait for HAOS to startup
 ---
 1. Now lookup the ip address of the box (the box gets ip using dhcp, ping homeassistant -4 or just lookup it from the dhcp server).
 2. Browse http://ip_of_the_box:4357 and then http://ip_of_the_box:8123.
