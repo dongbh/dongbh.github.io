@@ -41,7 +41,7 @@ DUSUN dsgw-210
   ![picture of diy usb dongle](../res/dsgw-210-4.png)
  
 
-### Wait HA startup
+### Wait HA to startup
 
 ---
 
@@ -57,6 +57,7 @@ DUSUN dsgw-210
 ### Working hardware
     Serial / Uart
     Ethernet
+
 ### TODO
     Wifi
     Bluetooth
