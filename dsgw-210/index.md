@@ -24,7 +24,7 @@
   ![maskrom probe](../res/dsgw-210-2.jpg)
 1. Option 2: Connect to the box using the type-c cable, it will show as an "ADB device", click "Advanced Function" tab, and then click "Go Maskrom". 
   ![from adb to maskrom](../res/dsgw-210-3.png)
-1. Click the "Download Image" tab, and input as follows, check the "Write by Address" checkbox and then click "Run" button. The list box on the right shows the flashing progress. When flashed to 100%, the box will restart, and the green leds turns on about 3 seconds later, wait 1-2 minutes for the box to startup.
+1. Click the "Download Image" tab, and input as follows, check the "Write by Address" checkbox and then click "Run" button. The list box on the right shows the flashing progress. When flashed to 100%, the box will restart, and the green leds turns on about 5 seconds later, wait 1-2 minutes for the box to startup.
   ![flashing the box](../res/dsgw-210-4.png)
  
 ### Wait for HAOS to startup
