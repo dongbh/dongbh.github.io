@@ -13,15 +13,15 @@ DUSUN dsgw-210
 
 ---
 
-1. This firmware use mainline u-boot. You must use Option 1  bellow to re-flash it to the original firmware.
-2. The serial changes to 1500000n8, you’d better use a cp2104 usb2ttl (cp2102 won’t work).
+1. This firmware uses mainline u-boot. If you want to flash it back to original firmware, You NEED use Option 1 bellow to re-flash it.
+2. The serial changes from 115200 to 1500000n8, you’d better use a cp2104 usb2ttl (cp2102 won’t work).
 
 
 ### Download flash tools and firmware
 
 ---
 
-1. Install rockchip flash toos as wiki [dsgw-210](https://wiki.dusuniot.com/iot_gateway_with_applications/dsgw-210-rk3328-home-assistant-gateway/quick-start-guide). I prefer a recent version(which has a checkbox: "Write by Address", download from [RKDevTool_Release_v3.31.zip](https://download.t-firefly.com/product/Board/RK3588/Tool/Window/RKDevTool_Release_v3.31.zip) with [DriverAssitant_v5.1.1.zip](https://download.t-firefly.com/product/Board/RK3588/Tool/Window/DriverAssitant_v5.1.1.zip). Both from firefly site [firefly](https://www.t-firefly.com/doc/download/183.html).
+1. Install rockchip flash toos as wiki [dsgw-210](https://wiki.dusuniot.com/iot_gateway_with_applications/dsgw-210-rk3328-home-assistant-gateway/quick-start-guide). I prefer a recent version(which has a checkbox: "Write by Address", download from [RKDevTool_Release_v3.31.zip](https://download.t-firefly.com/product/Board/RK3588/Tool/Window/RKDevTool_Release_v3.31.zip) and [DriverAssitant_v5.1.1.zip](https://download.t-firefly.com/product/Board/RK3588/Tool/Window/DriverAssitant_v5.1.1.zip). Both from firefly site [firefly](https://www.t-firefly.com/doc/download/183.html).
 2. Download the loader ( MiniLoaderAll.bin or rk3328_loader_v1.14.249.bin ) and firmware ( haos_dsgw-210-13.1.img.xz), unzip the firmware.
 
 
