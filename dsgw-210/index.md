@@ -21,7 +21,7 @@ DUSUN dsgw-210
 
 ---
 
-1. Install rockchip flash toos as wiki [dsgw-210](https://wiki.dusuniot.com/iot_gateway_with_applications/dsgw-210-rk3328-home-assistant-gateway/quick-start-guide). I prefer a recent version(which has a checkbox: "Write by Address", download from [RKDevTool_Release_v3.31.zip](https://download.t-firefly.com/product/Board/RK3588/Tool/Window/RKDevTool_Release_v3.31.zip) and [DriverAssitant_v5.1.1.zip](https://download.t-firefly.com/product/Board/RK3588/Tool/Window/DriverAssitant_v5.1.1.zip). Both from firefly site [firefly](https://www.t-firefly.com/doc/download/183.html).
+1. Install rockchip flash tools as in dusun wiki [dsgw-210](https://wiki.dusuniot.com/iot_gateway_with_applications/dsgw-210-rk3328-home-assistant-gateway/quick-start-guide). I prefer a recent version(which has a checkbox: "Write by Address", download from [RKDevTool_Release_v3.31.zip](https://download.t-firefly.com/product/Board/RK3588/Tool/Window/RKDevTool_Release_v3.31.zip) and [DriverAssitant_v5.1.1.zip](https://download.t-firefly.com/product/Board/RK3588/Tool/Window/DriverAssitant_v5.1.1.zip). Both from firefly site [firefly](https://www.t-firefly.com/doc/download/183.html).
 2. Download the loader ( MiniLoaderAll.bin or rk3328_loader_v1.14.249.bin ) and firmware ( haos_dsgw-210-13.1.img.xz), unzip the firmware.
 
 
