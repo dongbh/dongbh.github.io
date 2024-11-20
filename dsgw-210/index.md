@@ -41,4 +41,5 @@
 ### TODO
     - Wifi
     - Bluetooth
-	
+
+Feel free to contact me via email at dongbh # outlook.com.
