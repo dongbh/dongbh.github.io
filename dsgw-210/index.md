@@ -1,4 +1,4 @@
-## How to flash HomeAssistant OS into DUSUN dsgw-210
+## Flash HomeAssistant OS into dsgw-210
 
 
 
