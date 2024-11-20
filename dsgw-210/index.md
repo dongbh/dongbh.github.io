@@ -32,10 +32,10 @@ DUSUN dsgw-210
 1. Launch RKDevTool.
 2. Make the dsgw-210 box into MASKROM mode:
  ![picture of diy usb dongle](../res/dsgw-210-1.png)
-3. Option 1: Provide 3.3V voltage (eg.  3.3v from usb2uart ) to the point and then connect the type-c port , and it will show in MaskRom mode.
+3. Option 1: Provide 3.3V voltage (eg.  3.3v from usb2uart ) to the point and then connect to the type-c port , and it will show in MaskRom mode.
   ![picture of diy usb dongle](../res/dsgw-210-2.png)
 
-4. Option 2: Connect the type-c port, it will show as an “ADB device”, then click “Advanced Function” tab, then click “Go Maskrom”. 
+4. Option 2: Connect to the type-c port, it will show as an “ADB device”, then click “Advanced Function” tab, then click “Go Maskrom”. 
    ![picture of diy usb dongle](../res/dsgw-210-3.png)
 5. Click the “Download Image” tab, and input as follows, check “Write by Address” and then Press “Run”. The right list box shows the flashing progress. When flashed to 100%, the dsgw-210 box will restart, and the green leds turns on about 3 seconds later, wait 1-2 minutes for the box startup.
   ![picture of diy usb dongle](../res/dsgw-210-4.png)
