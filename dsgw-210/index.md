@@ -32,6 +32,10 @@
 1. Now lookup the ip address of the box (the box gets ip using dhcp, ping homeassistant -4 or just lookup it from the dhcp server).
 1. Browse http://ip_of_the_box:4357 and then http://ip_of_the_box:8123.
 
+## Update HAOS
+1. Just click the UPDATE button when prompted.
+  ![flashing the box](../res/dsgw-210-6.png)
+
 ## Hardware support
 
 ### Working hardware
