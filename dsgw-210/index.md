@@ -10,7 +10,7 @@
 ### Read First:
 ---
 1. This firmware uses mainline u-boot. If you want to flash it back to original firmware, You NEED use Option 1 bellow to re-flash it.
-2. The serial changes from 115200 to 1500000n8, you’d better use a cp2104 usb2ttl (cp2102 won’t work).
+2. The serial changes from 115200 to 1500000n8, you’d better use a cp2104 usb2uart bridge (cp2102 won’t work).
 
 
 ### Download flash tools and firmware
@@ -25,7 +25,7 @@
  ![picture of diy usb dongle](../res/dsgw-210-5.png)
 2. Make the box into MASKROM mode:
  ![picture of diy usb dongle](../res/dsgw-210-1.png)
-3. Option 1: Provide 3.3V voltage (eg. 3.3v from usb2uart ) to the point and then connect to the box using the type-c cable, and it will show in MaskRom mode.
+3. Option 1: Provide 3.3V voltage (eg. 3.3v from usb2uart bridge ) to the point and then connect to the box using the type-c cable, and it will show in MaskRom mode.
   ![picture of diy usb dongle](../res/dsgw-210-2.jpg)
 
 4. Option 2: Connect to the box using the type-c cable, it will show as an "ADB device", click "Advanced Function" tab, and then click "Go Maskrom". 
