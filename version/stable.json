@@ -19,11 +19,11 @@
     "raspberrypi5-64": "2024.11.2",
     "dsgw-210": "2024.11.2",
     "green": "2024.11.2",
-    "panther-x2": "2024.11.2",
-    "cm311-1a": "2024.11.2",
+    "tinker": "2024.11.2",
+    "odroid-c2": "2024.11.2",
     "odroid-c4": "2024.11.2",
     "odroid-m1": "2024.11.2",
-    "orangepi3b": "2024.11.2",
+    "odroid-n2": "2024.11.2",
     "odroid-xu": "2024.11.2"
   },
   "hassos": {
@@ -36,12 +36,12 @@
     "rpi5-64": "13.2",
     "dsgw-210": "13.2",
     "green": "13.2",
-    "panther-x2": "13.2",
-    "cm311-1a": "13.2",
+    "tinker": "13.2",
+    "odroid-c2": "13.2",
     "odroid-c4": "13.2",
     "odroid-m1": "13.2",
     "odroid-m1s": "13.2",
-    "orangepi3b": "13.2",
+    "odroid-n2": "13.2",
     "odroid-xu4": "13.2",
     "generic-x86-64": "13.2",
     "generic-aarch64": "13.2",
@@ -58,7 +58,7 @@
     "4": "4.20",
     "3": "3.13"
   },
-  "ota": "https://github.com/dongbh/operating-system/releases/download/{version}/{os_name}_{board}-{version}.raucb",
+  "ota": "https://os-artifacts.home-assistant.io/{version}/{os_name}_{board}-{version}.raucb",
   "cli": "2024.09.0",
   "dns": "2024.04.0",
   "audio": "2023.12.0",
@@ -74,12 +74,12 @@
     "multicast": "homeassistant/{arch}-hassio-multicast"
   },
   "images": {
-    "core": "ghcr.nju.edu.cn/home-assistant/{machine}-homeassistant",
-    "supervisor": "ghcr.nju.edu.cn/home-assistant/{arch}-hassio-supervisor",
-    "cli": "ghcr.nju.edu.cn/home-assistant/{arch}-hassio-cli",
-    "audio": "ghcr.nju.edu.cn/home-assistant/{arch}-hassio-audio",
-    "dns": "ghcr.nju.edu.cn/home-assistant/{arch}-hassio-dns",
-    "observer": "ghcr.nju.edu.cn/home-assistant/{arch}-hassio-observer",
-    "multicast": "ghcr.nju.edu.cn/home-assistant/{arch}-hassio-multicast"
+    "core": "ghcr.io/home-assistant/{machine}-homeassistant",
+    "supervisor": "ghcr.io/home-assistant/{arch}-hassio-supervisor",
+    "cli": "ghcr.io/home-assistant/{arch}-hassio-cli",
+    "audio": "ghcr.io/home-assistant/{arch}-hassio-audio",
+    "dns": "ghcr.io/home-assistant/{arch}-hassio-dns",
+    "observer": "ghcr.io/home-assistant/{arch}-hassio-observer",
+    "multicast": "ghcr.io/home-assistant/{arch}-hassio-multicast"
   }
 }
