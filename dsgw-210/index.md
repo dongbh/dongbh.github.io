@@ -22,9 +22,9 @@
   ![maskrom mode](../res/dsgw-210-1.png)
 1. Option 1: Provide 3.3V voltage (eg. 3.3v from usb2uart bridge ) to the point and then connect to the box using the type-c cable, and it will show in MaskRom mode, then remov the 3.3v voltage.
   ![maskrom probe](../res/dsgw-210-2.jpg)
-1. Option 2: Connect to the box using the type-c cable, it will show as an "ADB device", click "Advanced Function" tab, and then click "Go Maskrom". 
-  ![from adb to maskrom](../res/dsgw-210-3.png)
-1. Click the "Download Image" tab, and input as follows, check the "Write by Address" checkbox and then click "Run" button. The list box on the right shows the flashing progress. When flashed to 100%, the box will restart, and the green leds turns on about 5 seconds later, wait 1-2 minutes for the box to startup.
+1. Option 2: Connect to the box using the type-c cable, it will show as an "Found one ADB device", click "Switch", the box will restart, wait a moment and RKDevTool will show "Found one Loader Device", click "Advanced Function" tab, and then click "Go Maskrom". 
+  ![from adb to loader](../res/dsgw-210-7.png)
+  ![from loader to maskrom](../res/dsgw-210-8.png)1. Click the "Download Image" tab, and input as follows, check the "Write by Address" checkbox and then click "Run" button. The list box on the right shows the flashing progress. When flashed to 100%, the box will restart, and the green leds turns on about 5 seconds later, wait 1-2 minutes for the box to startup.
 
 | Address     | Path |
 | ----------- | ----------- |
