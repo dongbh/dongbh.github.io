@@ -48,11 +48,19 @@
 - loader: [rk3328_loader_v1.14.249.bin](https://github.com/dongbh/operating-system/releases/download/13.1/rk3328_loader_v1.14.249.bin) 
 - firmware: [haos_dsgw-210-13.1.img.xz](https://github.com/dongbh/operating-system/releases/download/13.1/haos_dsgw-210-13.1.img.xz)
 
+## Note
+- The mac address of the Ethernet changes when flashing using MASKROM mode. Use the fw_setenv command to set mac to original (on th back of the box)
+```
+fw_setenv eth1addr '00:11:22:33:44:55'
+```
+
 ## Hardware support
 
 ### Working hardware
     - Serial / Uart
     - Ethernet
+    - Led
+    - Restart Key
 
 ### TODO
     - Wifi
