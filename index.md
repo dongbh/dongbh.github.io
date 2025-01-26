@@ -12,3 +12,5 @@
     - [zbgw7628 基于mt8726和 mgm210l 的 zigbee 网关](https://dongbh.github.io/zbgw7628/)
 4. HomeAssistant OS
     - [DUSUN dsgw-210 HAOS ](https://dongbh.github.io/dsgw-210/)
+5. esp32dali2mqtt
+    - [dong's esp32dail2mqtt](https://dongbh.github.io/esp32dali2mqtt/)
