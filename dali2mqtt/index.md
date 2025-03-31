@@ -66,14 +66,28 @@ dali2mqtt 是一款支持 DALI2 转换到 mqtt 协议的有线网关，用于dal
     - 在线升级：如有新固件，系统在升级后会重启；如果没有新固件；会提示不需要升级；
 
 ### mqtt topic
+以下说明中，<macaddress>为网关mac地址，可以从配置中找到。<adr>为短地址，有效值为00-79，2位数字，0-9需要写成00-09，64-79表示组0到组15。
 1. 扫描总线灯具：
-    - topic: d2m_<macaddress>/00/set/scan，其中macaddress为网关mac地址，可以从配置中找到；
-    - payload: "0"
-    - 以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/00/set/scan -m "0" 则发起扫描；
-2. 进入场景：
-    - topic: d2m_<macaddress>/<adr>/set/scene，其中macaddress为网关mac地址，可以从配置中找到。adr为短地址，有效值为0-79，其中64-79表示组0到组15；
-    - payload: "<scene>"，scene 为场景编号（0-15）
-    - 以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/03/set/scene -m "15" 则短地址为3的灯具进入场景15；
+    - topic: d2m_<macaddress>/00/set/scan
+    - payload: 0
+    - 以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/00/set/scan -m "0" 则发起扫描
+    - 网关无反馈
+2. 设置亮度：
+    - topic: d2m_<macaddress>/<adr>/set/brightness
+    - payload: <value>
+    - value 为亮度（百分比，0-100，0为关闭，100为全亮）；以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/03/set/brightness -m "80" 则短地址为3的灯具亮度调整为80%
+    - 网关反馈的topic 和 payload 为： d2m_<macaddress>/<adr>/status/brightness <value>
+3. 设置色温：
+    - topic: d2m_<macaddress>/<adr>/set/color
+    - payload: <value>
+    - value 为色温（开尔文），有效值为2000-6535；以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/03/set/color -m "4000" 则短地址为3的灯具色温调整到4000开尔文
+    - 网关反馈的topic 和 payload 为： d2m_<macaddress>/<adr>/status/color <value>
+4. 进入场景：
+    - topic: d2m_<macaddress>/<adr>/set/scene
+    - payload: <scene>
+    - scene 为场景编号（0-15），以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/03/set/scene -m "15" 则短地址为3的灯具进入场景15
+    - 网关无反馈。
+
 
 ### 网络
 1. 开机时如果插上网线，则有线获取有线网络ip地址；
