@@ -9,6 +9,7 @@ dali2mqtt 是一款支持 DALI2 转换到 mqtt 协议的有线网关，用于dal
 - 处理器为 eps32，资源充足、省电环保；
 - 有线网络，稳定可靠；
 - ha 下打开或关闭组，组内灯具状态会相应更新；
+- 组状态可以自定义（组内灯全开则组状态为开，或只有一盏开则为开）；
 - 自带管理界面，直观寻灯、分组和控制，调试方便；
 - DIN 导轨支持，便于放置配电箱；
 - 单路 DALI, 4个接线柱，便于接线；
@@ -20,10 +21,10 @@ dali2mqtt 是一款支持 DALI2 转换到 mqtt 协议的有线网关，用于dal
 
 ### 使用方法
 0. 安装 mqtt 服务器，并配置到 homeassistant;
-1. 插入网线，接入typec电源；
-2. 等待网关获取ip地址（时间约10秒到1分钟，网关名字为 d2m，可以从路由器上查看，也可以运行 ping d2m.local 来确认地址，以下假设获取的地址为 192.168.1.99；
-3. 网关开始扫描dali总线的所有设备，可以观察到接收和发送(中间的2个)指示led闪烁；
-4. 首次使用先配置mqtt服务器，详见下节（网关管理界面操作）；
+1. 先将网关接入带有电源的dail总线，然后插上网线，最后插上typec电源；
+2. 等待网关获取ip地址（网络led常亮)，从浏览器上访问设备：http://d2m.local；也可以从路由器上查看获取的地址，以下假设获取的地址为 192.168.1.99；
+3. 输入用户名 d2m 和 密码 dali2mqtt，进入 mqtt 配置页面，配置地址和端口，提交后设备会重启；
+4. 待设备重启完成，再次刷新浏览器，进入命令界面，点击“扫描”去发现总线上的灯具，也可以通过多功能按键操作；
 5. 多功能键操作：
     - 单击：用于在全开和全关之间来回切换，按一下全开，再按全关；
     - 双击：用于扫描总线上的灯具，同时向mqtt服务㗊上报结果，可以多次扫描更新；
@@ -65,7 +66,7 @@ dali2mqtt 是一款支持 DALI2 转换到 mqtt 协议的有线网关，用于dal
 6. 固件管理：选择"固件"页面后：
     - 在线升级：如有新固件，系统在升级后会重启；如果没有新固件；会提示不需要升级；
 
-### mqtt topic
+### mqtt topic(更新中)
 以下说明中，\{macaddress\}为网关mac地址，可以从配置中找到。\{adr\}为短地址，有效值为00-79，2位数字，0-9需要写成00-09，64-79表示组0到组15。
 1. 扫描总线灯具：
     - topic: d2m_\{macaddress\}/00/set/scan
@@ -73,20 +74,23 @@ dali2mqtt 是一款支持 DALI2 转换到 mqtt 协议的有线网关，用于dal
     - 以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/00/set/scan -m "0" 则发起扫描
     - 网关无反馈
 2. 设置亮度：
-    - topic: d2m_\{macaddress\}/\{adr\}/set/brightness
-    - payload: \{value\}
-    - value 为亮度（百分比，0-100，0为关闭，100为全亮）；以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/03/set/brightness -m "80" 则短地址为3的灯具亮度调整为80%
-    - 网关反馈的topic 和 payload 为： d2m_\{macaddress\}/\{adr\}/status/brightness \{value\}
+    - topic: d2m_\{macaddress\}/\{adr\}/set
+    - payload:  \{"state":"ON","brightness":\{value}\}
+    - value 为亮度（0-254，0为关闭，254为全亮）
+    - 以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/03/set  -m "{\"state\":\"ON\",\"brightness\":231}" 则短地址为3的灯具亮度调整为231
+    - 网关反馈的topic中将set替换成status,payload不变：d2m_\{macaddress\}/\{adr\}/status/\{"state":"ON","brightness":\{value}\}
 3. 设置色温：
-    - topic: d2m_\{macaddress\}/\{adr\}/set/color
-    - payload: \{value\}
-    - value 为色温（开尔文），有效值为2000-6535；以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/03/set/color -m "4000" 则短地址为3的灯具色温调整到4000开尔文
-    - 网关反馈的topic 和 payload 为： d2m_\{macaddress\}/\{adr\}/status/color \{value\}
+    - topic: d2m_\{macaddress\}/\{adr\}/set
+    - payload:  \{"state":"ON","color_temp":\{value}\}
+    - value 为kelvin表示的色温（2000-6535）
+    - 以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/03/set  -m "{\"state\":\"ON\",\"color_temp\":2500}" 则短地址为3的灯具色温调整为2500
+    - 网关反馈的topic中将set替换成status, payload中增加"color_mode"：d2m_\{macaddress\}/\{adr\}/status/\{"state":"ON","color_temp":\{value}\,  "color_mode":"color_temp"}
 4. 进入场景：
-    - topic: d2m_\{macaddress\}/\{adr\}/set/scene
-    - payload: \{scene\}
-    - scene 为场景编号（0-15），以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/03/set/scene -m "15" 则短地址为3的灯具进入场景15
+    - topic: d2m_\{macaddress\}/\{adr\}/set
+    - payload: \{"scene":\{value}\}
+    - value 为场景编号（0-15），以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/03/set -m  \{"scene":15\} 则短地址为3的灯具进入场景15
     - 网关无反馈。
+
 
 
 ### 网络
@@ -97,8 +101,9 @@ dali2mqtt 是一款支持 DALI2 转换到 mqtt 协议的有线网关，用于dal
 
 ### 其他说明
 1. web 初始访问用户名为 d2m，密码为 dali2mqtt；
-2. 由于dali系统短地址随机分配，删除后再分配的短地址会和原来不一致，建议删除功能慎用；
-3. 如果遇到某个灯具没有被发现，可以多次扫描；
-4. 分组变动后需重新扫描才能更新到homeassistant；
-5. 无网络情况下，可以直接使用多功能键进行操作；
-6. 网关不提供总线电源。
+2. v1.2.0版本以后开机和连上mqtt服务器时不再自动扫描；
+3. 由于dali系统短地址随机分配，删除后再分配的短地址会和原来不一致，建议删除功能慎用；
+4. 如果遇到某个灯具没有被发现，可以多次扫描；
+5. ~~分组变动后需重新扫描才能更新到homeassistant；~~
+6. 无网络情况下，可以直接使用多功能键进行操作；
+7. 网关不提供总线电源。
