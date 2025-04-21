@@ -78,20 +78,20 @@ dali2mqtt 是一款支持 DALI2 转换到 mqtt 协议的有线网关，用于dal
     - payload:  {"state":"ON","brightness":\{value}}
     - {value} 为亮度（0-254，0为关闭，254为全亮）
     - 以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/03/set  -m "{\\"state\":\\"ON\\",\\"brightness\\":231}" 则短地址为3的灯具亮度调整为231
-    - 网关反馈的topic中将set替换成status,payload不变：d2m_{macaddress}/{adr}/status/ {"state":"ON","brightness":{value}}
+    - 网关反馈的topic中将set替换成status,payload不变：d2m_{macaddress}/{adr}/status {"state":"ON","brightness":{value}}
 3. 设置色温：
     - topic: d2m_{macaddress}/{adr}/set
     - payload:  {"state":"ON","color_temp":{value}}
     - {value} 为kelvin表示的色温（2000-6535）
     - 以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/03/set  -m "{\\"state\\":\\"ON\\",\\"color_temp\\":2500}" 则短地址为3的灯具色温调整为2500
-    - 网关反馈的topic中将set替换成status, payload中增加"color_mode"：d2m_{macaddress}/{adr}/status/ {"state":"ON","color_temp":{value},"color_mode":"color_temp"}
+    - 网关反馈的topic中将set替换成status, payload中增加"color_mode"：d2m_{macaddress}/{adr}/status {"state":"ON","color_temp":{value},"color_mode":"color_temp"}
 4. 同时设置亮度/色温
     - topic: d2m_{macaddress}/{adr}/set
     - payload:  {"state":"ON","brightness":{bvalue},"color_temp":{cvalue}}
     - {bvalue} 为亮度（0-254，0为关闭，254为全亮）
     - {cvalue} 为kelvin表示的色温（2000-6535）
     - 以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/03/set  -m "{\\"state\\":\\"ON\\",\\"brightness\\":231,\\"color_temp\\":2500}" 则短地址为3的灯具色温调整为2500的同时将亮度调整到231
-    - 网关反馈的topic中将set替换成status, payload中增加"color_mode"：d2m_{macaddress}/{adr}/status/{"state":"ON","brightness":{bvalue},"color_temp":{cvalue},"color_mode":"color_temp"}
+    - 网关反馈的topic中将set替换成status, payload中增加"color_mode"：d2m_{macaddress}/{adr}/status {"state":"ON","brightness":{bvalue},"color_temp":{cvalue},"color_mode":"color_temp"}
 5. 进入场景：
     - topic: d2m_{macaddress}/{adr}/set
     - payload: {"scene":{value}}
