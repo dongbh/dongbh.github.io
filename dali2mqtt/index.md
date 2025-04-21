@@ -23,7 +23,9 @@ dali2mqtt 是一款支持 DALI2 转换到 mqtt 协议的有线网关，用于dal
     - 网络：闪烁表示无网络，常亮表示已获取IP地址。
     - RXD: 闪亮表示正在从总线接收数据，无接收熄灭
     - TXD：闪亮表示正在向总线发送数据，无发送熄灭 
-    - mqtt：闪烁表示未连接，常亮表示已接入服务器。 |  ![体积小巧](/res/esp32dali2mqtt.png )
+    - mqtt：闪烁表示未连接，常亮表示已接入服务器。 
+    
+![体积小巧](/res/esp32dali2mqtt.png )
 
 ### 使用方法
 0. 安装 mqtt 服务器，并在homeassistant上配置完成;
