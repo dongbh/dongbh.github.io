@@ -32,7 +32,7 @@ dali2mqtt 是一款支持 DALI2 转换到 mqtt 协议的有线网关，用于dal
 1. 先将网关接入带有电源的dail总线，然后插上网线，最后插上typec电源；
 2. 等待网关获取ip地址（网络led常亮)，从浏览器上访问设备：http://d2m.local；也可以从路由器上查看获取的地址，以下假设获取的地址为 192.168.1.99；
 3. 输入用户名 d2m 和 密码 dali2mqtt，进入 mqtt 配置页面，配置地址和端口，提交后设备会重启；
-4. 待设备重启完成，再次刷新浏览器，进入命令界面，点击“扫描”去发现总线上的灯具，也可以通过多功能按键操作；
+4. 待设备重启完成，再次刷新浏览器，进入命令界面，点击“扫描”去发现总线上的灯具并同步到mqtt，也可以通过多功能按键操作；
 5. 多功能键操作：
     - 单击：用于在全开和全关之间来回切换，按一下全开，再按全关；
     - 双击：用于扫描总线上的灯具，同时向mqtt服务㗊上报结果，可以多次扫描更新；
@@ -64,10 +64,11 @@ dali2mqtt 是一款支持 DALI2 转换到 mqtt 协议的有线网关，用于dal
     - 可以输入渐变速率和渐变时间；
     - 可以读出网关缓存的场景数据，或直接输入后保存到网关和灯具；
 6. 常用命令：选择"命令"页面：
-    - 全部打开：切换所有灯具全开；
-    - 全部关闭：切换所有灯具全关；
+    - 全部打开：切换所有灯具全开亮度（100%）；
+    - 全部关闭：切换所有灯具全关亮度（0%）；
     - 闪烁寻灯：用于灯具定位，相应灯具会闪烁10秒钟，短地址有效值为0-79，其中64-79表示组0到组15；
-    - 扫描设备 ：扫描所有短地址；
+    - 扫描设备 ：扫描总线上所有短地址，并上传到mqtt服务器；
+    - 同步已发现设备：将之前扫描到的灯具信息上传到mqtt服务㗊（不扫描总线），当接通mqtt服务器时会自动执行此操作；
     - 为新设备分配地址: 为新灯具分配短地址（已分配短地址的不受影响）；
     - 删除地址：用于删除某一地址（需要根据提示输入后确认），短地址有效值为0-63；
     - 删除所有地址：删除所有短地址，然后可以重新分配（需要根据提示输入后确认）；
@@ -75,33 +76,38 @@ dali2mqtt 是一款支持 DALI2 转换到 mqtt 协议的有线网关，用于dal
 6. 固件管理：选择"固件"页面后：
     - 在线升级：如有新固件，系统在升级后会重启；如果没有新固件；会提示不需要升级；
 
-### mqtt topic(更新中)
-以下说明中，\{macaddress\}为网关mac地址，可以从配置中找到。\{adr\}为短地址，有效值为00-79，2位数字，0-9需要写成00-09，64-79表示组0到组15。
-1. 扫描总线灯具(实现中)：
+### mqtt topic
+以下说明中，\{macaddress\}为网关mac地址，需要从配置中查找(不是路由器上发现的mac地址)。\{adr\}为短地址，有效值为00-79，2位数字，0-9需要写成00-09，64-79表示组0到组15。
+1. 扫描总线灯具并同步到mqtt：
     - topic: d2m_{macaddress}/00/set
-    - payload: {"scan":1}
-    - 以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/00/set -m "{\\"scan\\":1}" 则发起扫描
+    - payload: {"command":"scan"}
+    - 以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/00/set -m "{\\"command"\\":"scan"}" 即可
     - 网关无反馈
-2. 设置亮度：
+2. 将网关已发现的灯具同步到mqtt（不扫描）：
+    - topic: d2m_{macaddress}/00/set
+    - payload: {"command":"sync"}
+    - 以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/00/set -m "{\\"command"\\":"sync"}" 即可
+    - 网关无反馈
+3. 设置亮度：
     - topic: d2m_{macaddress}/{adr}/set
     - payload:  {"state":"ON","brightness":\{value}}
     - {value} 为亮度（0-254，0为关闭，254为全亮）
     - 以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/03/set  -m "{\\"state\":\\"ON\\",\\"brightness\\":231}" 则短地址为3的灯具亮度调整为231
     - 网关反馈的topic中将set替换成status,payload不变：d2m_{macaddress}/{adr}/status {"state":"ON","brightness":{value}}
-3. 设置色温：
+4. 设置色温：
     - topic: d2m_{macaddress}/{adr}/set
     - payload:  {"state":"ON","color_temp":{value}}
     - {value} 为kelvin表示的色温（2000-6535）
     - 以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/03/set  -m "{\\"state\\":\\"ON\\",\\"color_temp\\":2500}" 则短地址为3的灯具色温调整为2500
     - 网关反馈的topic中将set替换成status, payload中增加"color_mode"：d2m_{macaddress}/{adr}/status {"state":"ON","color_temp":{value},"color_mode":"color_temp"}
-4. 同时设置亮度/色温
+5. 同时设置亮度/色温
     - topic: d2m_{macaddress}/{adr}/set
     - payload:  {"state":"ON","brightness":{bvalue},"color_temp":{cvalue}}
     - {bvalue} 为亮度（0-254，0为关闭，254为全亮）
     - {cvalue} 为kelvin表示的色温（2000-6535）
     - 以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/03/set  -m "{\\"state\\":\\"ON\\",\\"brightness\\":231,\\"color_temp\\":2500}" 则短地址为3的灯具色温调整为2500的同时将亮度调整到231
     - 网关反馈的topic中将set替换成status, payload中增加"color_mode"：d2m_{macaddress}/{adr}/status {"state":"ON","brightness":{bvalue},"color_temp":{cvalue},"color_mode":"color_temp"}
-5. 进入场景：
+6. 进入场景：
     - topic: d2m_{macaddress}/{adr}/set
     - payload: {"scene":{value}}
     - {value} 为场景编号（0-15），以mosquitto为例，在mqtt服务上输入 mosquitto_pub -t "d2m_244cab05c094/03/set" -m "{\\"scene\\":0}" 则短地址为3的灯具进入场景15
@@ -117,10 +123,11 @@ dali2mqtt 是一款支持 DALI2 转换到 mqtt 协议的有线网关，用于dal
 
 ### 其他说明
 1. web 初始访问用户名为 d2m，密码为 dali2mqtt；
-2. 网关进行扫描时，将扫描发现的设备信息同步保存到网关缓存并上传到mqtt服务器；如果有灯具未被发现，可能需要多次扫描；
-3. v1.2.0版本以后开机和连上mqtt服务器时不再主动扫描，需要人工扫描后才能在mqtt服务器上出现；
-4. 由于dali系统短地址随机分配，删除后再分配的短地址会和原来不一致，建议删除功能慎用；
-5. 如果遇到某个灯具没有被发现，可以多次扫描；
+2. 鼠标悬停在命令/短地址等上面会有提示信息；
+3. 网关进行扫描时，将扫描发现的设备信息同步保存到网关缓存并上传到mqtt服务器；如果有灯具未被发现，可能需要多次扫描；
+4. v1.2.0版本以后开机时不再主动扫描，只在连上mqtt服务器时执行上传操作，首次使用需要人工扫描后才能在mqtt服务器上出现；
+5. 由于dali系统短地址随机分配，删除后再分配的短地址会和原来不一致，建议删除功能慎用；
 6. ~~分组变动后需重新扫描才能更新到homeassistant；~~
 7. 无网络情况下，可以直接使用多功能键进行操作；
-8. 网关不提供总线电源。
+8. 网关采用 esp32 模组，每个模组有4个mac地址（wifi, ap， bluetooth, ethernet)，网关配置中的mac是wifi的mac,所以当接入有线网络时，和路由器上发现的mac并不一致，mqtt命令的操作以网关配置中的mac为准；
+9. 网关不提供总线电源。
