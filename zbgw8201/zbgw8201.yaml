@@ -1,4 +1,7 @@
 # zbgw8201.yaml
+# changes:
+#    power pin from 17 to 12;
+#    rx  pin from 32 to 35;
 esphome:
   name: zbgw8201
   project: 
@@ -6,7 +9,7 @@ esphome:
     version: "1.0"
 
 dashboard_import:
-  package_import_url: github://dongbh/zbgw8201/zbgw8201.yaml
+  package_import_url: github://dongbh/dongbh.github.io/zbgw8201/zbgw8201-II.yaml
 
 esp32:
   board: esp-wrover-kit
@@ -31,8 +34,9 @@ ethernet:
   mdc_pin: GPIO23
   mdio_pin: GPIO18
   clk_mode: GPIO0_IN
+#  clk_mode: GPIO17_OUT
   phy_addr: 0
-  power_pin: GPIO17
+  power_pin: GPIO12
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
 #  ap:
@@ -45,8 +49,9 @@ logger:
 
 # Enable Home Assistant API
 api:
-  reboot_timeout: 1h
+
 ota:
+  platform: esphome
 
 #web_server:
 #  port: 80
@@ -54,7 +59,7 @@ ota:
 uart:
   id: uart_bus
   tx_pin: GPIO33
-  rx_pin: GPIO32
+  rx_pin: GPIO35
 #  rx_buffer_size: 1024
   baud_rate: 115200
 
