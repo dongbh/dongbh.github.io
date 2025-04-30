@@ -42,24 +42,6 @@ ethernet:
   mdio_pin: GPIO18
   clk_mode: GPIO0_IN
   phy_addr: 0
-  power_pin: GPIO17
-
-uart:
-  id: uart_bus
-  tx_pin: GPIO33
-  rx_pin: GPIO32
-
-leds: GPIO14, GPIO4, GPIO16
-```
-
-### zbgw8201-II 核心配置
-```
-ethernet:
-  type: RTL8201
-  mdc_pin: GPIO23
-  mdio_pin: GPIO18
-  clk_mode: GPIO0_IN
-  phy_addr: 0
   power_pin: GPIO12
 
 uart:
@@ -71,7 +53,7 @@ uart:
 
 ### esphome 配置文件
 - [zbgw8201.yaml](zbgw8201.yaml)
-- [zbgw8201-II.yaml](zbgw8201-II.yaml)
+- [zbgw8201.legayc.yaml](zbgw8201.legacy.yaml)
 
 ### 升级 ezsp 
 1. 下载 [universal-silabs-flasher](https://github.com/NabuCasa/universal-silabs-flasher)。
@@ -82,7 +64,7 @@ universal-silabs-flasher  --device socket://192.168.1.99:6636  flash --firmware 
 ```
 
 ### 更新
-- 20240613 新增zbgw8201-II版本，power-pin 调整为GPIO12, uart 的rx 调整为 GPIO35。
+- 20240613 更新新增zbgw8201版本，power-pin 调整为GPIO12, uart 的rx 调整为 GPIO35，原配置文件重命名为 zbgw8201.legacy.yaml。
 - 20240601 新增POE版本，配置不变。
 
 ### 其他
