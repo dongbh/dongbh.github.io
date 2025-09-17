@@ -1,6 +1,6 @@
 ## dali2mqtt 有线网关
 
-dali2mqtt 是一款支持 DALI2 转换到 mqtt 协议的有线网关，用于dali 灯具接入 home assistant，也可以用于通过mqtt控制dali灯具。
+dali2mqtt 是一款支持 DALI2 转换到 mqtt 协议的有线网关，用于dali 灯具接入 home assistant，也可以用于通过mqtt控制dali灯具，同时支持websocket，适配各类中控系统。
 
 ### 主要特点
 
@@ -8,6 +8,7 @@ dali2mqtt 是一款支持 DALI2 转换到 mqtt 协议的有线网关，用于dal
 - Homeassistant 自动发现(DT6/DT8)，便于管理；
 - 处理器为 eps32，资源充足、省电环保；
 - 有线网络，稳定可靠；
+- 支持 mqtt 和 websocket 连接，信息完全同步；
 - ha 下打开或关闭组，组内灯具状态会相应更新；
 - 组状态可以自定义（组内灯全开则组状态为开，或只有一盏开则为开）；
 - 自带管理界面，直观寻灯、分组和控制，调试方便；
