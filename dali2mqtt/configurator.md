@@ -23,7 +23,7 @@ DALI Configurator 是一款支持 DALI2 的快速设置工具（以下简称设�
     - AP：闪烁或熄灭表示未连接，常亮表示已启用AP服务， 其他设备通过d2m-xxxxxx的ssid接入， 此时设备地址为192.168.4.1
 - 220v指示灯（位于拨动开关侧面）：当总线误接220v时，这两个指示灯会常亮。
     
-![体积小巧](/res/dalitool.png)
+![体积小巧](/res/configurator.png)
 
 ### 使用方法
 1. 先将设备接入dail总线，插上typec电源；
