@@ -84,8 +84,8 @@ dali2mqtt 是一款支持 DALI2 转换到 mqtt 协议的有线网关，用于dal
     ![固件管理](/res/dail_web_5.png)
 
 ### mqtt topic 和 websocket
-以下说明中，\{macaddress\}为网关mac地址，需要从配置中查找(不是路由器上发现的mac地址)。\{adr\}为短地址，有效值为00-79，2位数字，0-9需要写成00-09，64-79表示组0到组15。
-websocket 的连接地址为： ws://d2m.local/ws. 发送命令的格式为json, 以扫描总线灯具为例: {"device":"d2m_{macaddress}/{adr}, "set":{"command":"scan"}}。
+以下说明中，\{macaddress\}为网关mac地址，需要从配置中查找(不是路由器上发现的mac地址)。\{adr\}为短地址，有效值为00-79，2位数字，0-9需要写成00-09，64-79表示组0到组15。  
+websocket 的连接地址为： ws://d2m.local/ws. 发送命令的格式为json, 以扫描总线灯具为例: {"device":"d2m_{macaddress}/{adr}", "set":{"command":"scan"}}，也就是将topic和payload合并为一个json语句。
 1. 扫描总线灯具并同步到mqtt：
     - topic: d2m_{macaddress}/00/set
     - payload: {"command":"scan"}
