@@ -97,26 +97,40 @@ websocket 的连接地址为： ws://d2m.local/ws. 发送命令的格式为json,
     - payload: {"command":"sync"}
     - 以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/00/set -m "{\\"command"\\":"sync"}" 即可
     - 网关反馈灯具配置 或 NULL
-3. 设置亮度：
+3. 上报当前灯具状态:
+    - topic: d2m_{macaddress}/{adr}/set
+    - payload: {"command":"pubstate"}
+    - 以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/00/set -m "{\\"command"\\":"pubstate"}" 即可
+    - 网关反馈灯具当前状态（以色温灯为例）：
+    d2m_{macaddress}/00/status {"state":"ON","color_temp":2500,"color_mode":"color_temp"}
+    - 如果{adr}为255则上传所有灯具，否则为单灯
+
+4. 设置亮度：
     - topic: d2m_{macaddress}/{adr}/set
     - payload:  {"state":"ON","brightness":\{value}}
     - {value} 为亮度（0-254，0为关闭，254为全亮）
     - 以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/03/set  -m "{\\"state\":\\"ON\\",\\"brightness\\":231}" 则短地址为3的灯具亮度调整为231
     - 网关反馈的topic中将set替换成status,payload不变：d2m_{macaddress}/{adr}/status {"state":"ON","brightness":{value}}
-4. 设置色温：
+5. 设置色温：
     - topic: d2m_{macaddress}/{adr}/set
     - payload:  {"state":"ON","color_temp":{value}}
     - {value} 为kelvin表示的色温（2000-6535）
     - 以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/03/set  -m "{\\"state\\":\\"ON\\",\\"color_temp\\":2500}" 则短地址为3的灯具色温调整为2500
     - 网关反馈的topic中将set替换成status, payload中增加"color_mode"：d2m_{macaddress}/{adr}/status {"state":"ON","color_temp":{value},"color_mode":"color_temp"}
-5. 同时设置亮度/色温
+6. 同时设置亮度/色温
     - topic: d2m_{macaddress}/{adr}/set
     - payload:  {"state":"ON","brightness":{bvalue},"color_temp":{cvalue}}
     - {bvalue} 为亮度（0-254，0为关闭，254为全亮）
     - {cvalue} 为kelvin表示的色温（2000-6535）
     - 以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/03/set  -m "{\\"state\\":\\"ON\\",\\"brightness\\":231,\\"color_temp\\":2500}" 则短地址为3的灯具色温调整为2500的同时将亮度调整到231
     - 网关反馈的topic中将set替换成status, payload中增加"color_mode"：d2m_{macaddress}/{adr}/status {"state":"ON","brightness":{bvalue},"color_temp":{cvalue},"color_mode":"color_temp"}
-6. 进入场景：
+7. 设置颜色(以RGBW为例)
+    - topic: d2m_{macaddress}/{adr}/set
+    - payload:  {"state":"ON","color":{"r": {rvalue}, "g":{gvalue}, "b": {bvalue}, "w":{wvalue} }}
+    - {r/b/g/wvalue} 分别为红、绿、蓝、白通道亮度（0-254，0为关闭，254为全亮）
+    - 以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/03/set  -m "{\\"state\\":\\"ON\\",\\"color\\":{\\"r\\":125, \\"g\\":135, \\"b\\":145, \\"w\\":155}}" 则短地址为3的灯具颜色调整到RGBW(125, 135, 145, 155)
+    - 网关反馈的topic中将set替换成status, payload中增加"brightness"：d2m_{macaddress}/{adr}/status {"state":"ON","brightness":{bvalue},"color":{"r": {rvalue}, "g":{gvalue}, "b": {bvalue}, "w":{wvalue} }
+8. 进入场景：
     - topic: d2m_{macaddress}/{adr}/set
     - payload: {"scene":{value}}
     - {value} 为场景编号（0-15），以mosquitto为例，在mqtt服务上输入 mosquitto_pub -t "d2m_244cab05c094/03/set" -m "{\\"scene\\":0}" 则短地址为3的灯具进入场景15
