@@ -54,7 +54,7 @@ uart:
 
 ### esphome 配置文件
 - [zbgw8201.yaml](zbgw8201.yaml)
-- [zbgw8201.legayc.yaml](zbgw8201.legacy.yaml) (请注意早期产品以太网引脚有变化)
+- [zbgw8201.legayc.yaml](zbgw8201.legacy.yaml) (请注意早期产品以太网引脚有变化,如果是自己编译，请拆开机器查看板子后面的标注,如果刷机失败则需要有通过串口重刷)
 
 
 ### 自动升级 系统 固件
