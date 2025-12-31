@@ -9,10 +9,10 @@ esphome:
     version: "1.0"
 
 dashboard_import:
-  package_import_url: github://dongbh/dongbh.github.io/zbgw8201/zbgw8201-II.yaml
+  package_import_url: github://dongbh/dongbh.github.io/zbgw8201/zbgw8201.yaml
 
 esp32:
-  board: esp-wrover-kit
+  board: esp32dev
   framework:
     type: esp-idf
     version: recommended

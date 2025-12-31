@@ -9,7 +9,7 @@ dashboard_import:
   package_import_url: github://dongbh/zbgw8201/zbgw8201.yaml
 
 esp32:
-  board: esp-wrover-kit
+  board: esp32dev
   framework:
     type: esp-idf
     version: recommended
