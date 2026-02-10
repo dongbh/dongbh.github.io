@@ -112,10 +112,9 @@ websocket 的连接地址为： ws://d2m.local/ws. 发送命令的格式为json,
     - 网关反馈灯具当前状态（以色温灯为例）：
     d2m_{macaddress}/00/status {"state":"ON","color_temp":2500,"color_mode":"color_temp"}
     - 如果{adr}为255则上传所有灯具，否则为单灯
-
 4. 设置亮度：
     - topic: d2m_{macaddress}/{adr}/set
-    - payload:  {"state":"ON","brightness":\{value}}
+    - payload:  {"state":"ON","brightness":{value}}
     - {value} 为亮度（0-254，0为关闭，254为全亮）
     - 以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/03/set  -m "{\\"state\":\\"ON\\",\\"brightness\\":231}" 则短地址为3的灯具亮度调整为231
     - 网关反馈的topic中将set替换成status,payload不变：d2m_{macaddress}/{adr}/status {"state":"ON","brightness":{value}}
@@ -138,7 +137,15 @@ websocket 的连接地址为： ws://d2m.local/ws. 发送命令的格式为json,
     - {r/b/g/wvalue} 分别为红、绿、蓝、白通道亮度（0-254，0为关闭，254为全亮）
     - 以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/03/set  -m "{\\"state\\":\\"ON\\",\\"color\\":{\\"r\\":125, \\"g\\":135, \\"b\\":145, \\"w\\":155}}" 则短地址为3的灯具颜色调整到RGBW(125, 135, 145, 155)
     - 网关反馈的topic中将set替换成status, payload中增加"brightness"：d2m_{macaddress}/{adr}/status {"state":"ON","brightness":{bvalue},"color":{"r": {rvalue}, "g":{gvalue}, "b": {bvalue}, "w":{wvalue} }
-8. 进入场景：
+8. 设置渐变时间、快速渐变时间和扩展渐变时间：
+    - topic: d2m_{macaddress}/{adr}/set
+    - payload:  {"fadetime":{value}} 
+    - payload:  {"fastfadetime":{value}} 
+    - payload:  {"extendfadetime":{value}, "multiplier":{value}} 
+    - {value} 为相应数据，请参考协议文本
+    - 以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/03/set  -m "{\\"fadetime\":2}" 则短地址为3的灯具渐变时间调整为1秒
+    - 网关无反馈
+9. 进入场景：
     - topic: d2m_{macaddress}/{adr}/set
     - payload: {"scene":{value}}
     - {value} 为场景编号（0-15），以mosquitto为例，在mqtt服务上输入 mosquitto_pub -t "d2m_244cab05c094/03/set" -m "{\\"scene\\":0}" 则短地址为3的灯具进入场景15
@@ -149,8 +156,9 @@ websocket 的连接地址为： ws://d2m.local/ws. 发送命令的格式为json,
 ### 网络
 1. 开机时如果插上网线，则有线获取有线网络ip地址；
 2. 如果1分钟内没有有效ip地址，则关闭有线网络，开启wifi sta 模式，寻找ap并接入；
-3. 如果5次尝试仍不能接入ap，则自动开启 ap 模式，其wifi ssid 以 d2m- 开头后跟 mac 地址，如 d2m-c049ef3f40b4，密码为1234567890；
-4. wifi 开启后，再插入有线电缆无效，系统不再检测有线网络；
+3. 如果30秒内仍不能接入ap，则自动开启 ap 模式，其wifi ssid 以 d2m- 开头后跟 mac 地址，如 d2m-c049ef3f40b4，密码为1234567890；
+4. ap 模式启动后，如果120秒内没有设备接入，则系统重启；如果有设备接入或尝试接入，则会一直停留在ap模式；
+4. wifi/ap 开启后，再插入有线电缆无效，系统不再检测有线网络；
 
 ### 其他说明
 1. web 初始访问用户名为 d2m，密码为 dali2mqtt；
