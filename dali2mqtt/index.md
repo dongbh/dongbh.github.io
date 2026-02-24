@@ -143,7 +143,7 @@ websocket 的连接地址为： ws://d2m.local/ws. 发送命令的格式为json,
     - payload:  {"fastfadetime":{value}} 
     - payload:  {"extendfadetime":{value}, "multiplier":{value}} 
     - {value} 为相应数据，请参考协议文本
-    - 以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/03/set  -m "{\\"fadetime\":2}" 则短地址为3的灯具渐变时间调整为1秒
+    - 以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/03/set  -m "{\\"fadetime\\":2}" 则短地址为3的灯具渐变时间调整为1秒
     - 网关无反馈
 9. 进入场景：
     - topic: d2m_{macaddress}/{adr}/set
