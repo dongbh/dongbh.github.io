@@ -98,17 +98,17 @@ websocket 的连接地址为： ws://d2m.local/ws. 发送命令的格式为json,
 1. 扫描总线灯具并同步到mqtt：
     - topic: d2m_{macaddress}/00/set
     - payload: {"command":"scan"}
-    - 以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/00/set -m "{\\"command"\\":"scan"}" 即可
+    - 以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/00/set -m "{\\"command\\":\\"scan\\"}" 即可
     - 网关反馈灯具配置 或 NULL
 2. 将网关已发现的灯具同步到mqtt（不扫描）：
     - topic: d2m_{macaddress}/00/set
     - payload: {"command":"sync"}
-    - 以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/00/set -m "{\\"command"\\":"sync"}" 即可
+    - 以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/00/set -m "{\\"command\\":\\"sync\\"}" 即可
     - 网关反馈灯具配置 或 NULL
 3. 上报当前灯具状态:
     - topic: d2m_{macaddress}/{adr}/set
     - payload: {"command":"pubstate"}
-    - 以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/00/set -m "{\\"command"\\":"pubstate"}" 即可
+    - 以mosquitto为例，在mqtt服务上输入 mosquitt_pub -t d2m_c049ef3f40b4/00/set -m "{\\"command\\":\\"pubstate\\"}" 即可
     - 网关反馈灯具当前状态（以色温灯为例）：
     d2m_{macaddress}/00/status {"state":"ON","color_temp":2500,"color_mode":"color_temp"}
     - 如果{adr}为255则上传所有灯具，否则为单灯
