@@ -1,4 +1,4 @@
-## zbgw8210 zigbee 和 ble 有线网关
+## zbgw8201 zigbee 和 ble 有线网关
 
 zbgw8201 是一款支持 zigbee 和 ble 的有线网关，用于这些设备接入 home assistant。
 
@@ -66,7 +66,7 @@ uart:
 2. 如果有新版本，则直接点击 "Flash EFR32(zigbee) online"，会自动下载并更新，然后等待更新完成（约1分钟，目前发现有时可能需要再按一次才能成功）。
 
 
-### 手工升级 ezsp 以mg13芯片为例）
+### 手工升级 ezsp 以旧版的mg13芯片为例）
 1. 下载 [universal-silabs-flasher](https://github.com/NabuCasa/universal-silabs-flasher)。
 2. 下载ezsp固件，请选择[ncp-uart-mg13-noflowcontrol-xxxx](https://github.com/dongbh/zigbee)版本，目前最新的是7.4.3。
 3. 假设设备的ip地址为 192.168.1.99, 下载的固件为当前文件夹下的 ncp-uart-mg13-noflowcontrol-115200.7.4.3.gbl，则执行如下命令升级：
@@ -77,6 +77,7 @@ universal-silabs-flasher  --device socket://192.168.1.99:6636  flash --firmware 
 ### 更新
 - 20240613 更新新增zbgw8201版本，power-pin 调整为GPIO12, uart 的rx 调整为 GPIO35，原配置文件重命名为 zbgw8201.legacy.yaml。
 - 20240601 新增POE版本，配置不变。
+- 20251201 启用新版固件，支持在线升级。
 
 ### 其他
 - 网关配有3个led指示灯，左一led用作了esphome系统状态（闪烁为获取ip或待连接， 快闪为系统故障），中间led用于zigbee数据指示(闪烁表示zigbee未连接，常亮表示zibgee已连接)，右一led暂没有使用。
