@@ -66,7 +66,7 @@ uart:
 2. 如果有新版本，则直接点击 "Flash EFR32(zigbee) online"，会自动下载并更新，然后等待更新完成（约1分钟，目前发现有时可能需要再按一次才能成功）。
 
 
-### 手工升级 ezsp 以旧版的mg13芯片为例）
+### 手工升级 ezsp(以旧版的mg13芯片为例)
 1. 下载 [universal-silabs-flasher](https://github.com/NabuCasa/universal-silabs-flasher)。
 2. 下载ezsp固件，请选择[ncp-uart-mg13-noflowcontrol-xxxx](https://github.com/dongbh/zigbee)版本，目前最新的是7.4.3。
 3. 假设设备的ip地址为 192.168.1.99, 下载的固件为当前文件夹下的 ncp-uart-mg13-noflowcontrol-115200.7.4.3.gbl，则执行如下命令升级：
