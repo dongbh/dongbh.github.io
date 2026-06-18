@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "efr32mg21": {
+      "fw_url": "https://dongbh.github.io/downloads/ncp-uart-rex3p-none-115200-8.2.2-12.5.gbl",
+      "md5": "B4AE9E3237114633B7ADD44B67D0B549",
+      "size": 235492,
+      "version": "8.2.2"
+    },
+    "efr32mg21hw": {
+      "fw_url": "https://dongbh.github.io/downloads/ncp-uart-zs3l-hw-115200-7.4.5-12.5.gbl",
+      "md5": "2a95f4e76fcbaf29cc4224bba802a46",
+      "size": 235492,
+      "version": "7.4.5"
+    }
+  }
+}
