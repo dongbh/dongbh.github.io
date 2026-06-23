@@ -28,6 +28,7 @@ external_components:
 #  - source: github://dongbh/esphome-stream-server
 #  - source: github://tube0013/esphome-stream-server-v2
   - source: github://dongbh/esphome-stream-server-v2
+#  - source: external_components
 
 ethernet:
   type: RTL8201
@@ -121,13 +122,25 @@ switch:
     id: blue_led
     name: Blue_LED
     inverted: true
+
+mdns:
+  services:
+    service: "_zigbee-coordinator"
+    protocol: "_tcp"
+    port: 6636
+    txt:
+      version: 1
+      name: "zbgw8201"
+      radio_type: "ezsp"
+      serial_number: !lambda 'return esphome::get_mac_address();'
  
 
 esp32_ble_tracker:
-  scan_parameters:
-    interval: 1100ms
-    window: 1100ms
-    active: true
+  # The default scan parameters are recommended.
+  # Aggressive scan settings (e.g., interval/window of 1100ms) typically
+  # provide no benefit while increasing CPU usage and may cause
+  # overheating on some PoE-based proxies.
 
 bluetooth_proxy:
   active: true
+  connection_slots: 4
