@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "13xx": {
+      "fw_url": "https://dongbh.github.io/downloads/ncp-uart-zs3l-8.2.2-12.5.gbl",
+      "md5": "c845b041191b20a2b5d1a25d674d84b1",
+      "size": 211676,
+      "version": "8.2.2"
+    },
+    "zbgw": {
+      "fw_url": "https://dongbh.github.io/downloads/zbgw_ota.bin",
+      "md5": "2a95f4e76fcbaf29cc4224bba802a46",
+      "size": 235492,
+      "version": "1.0.1"
+    }
+  }
+}
