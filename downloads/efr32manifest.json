@@ -1,8 +1,8 @@
 {
   "variants": {
     "zs3lnone": {
-      "fw_url": "https://dongbh.github.io/downloads/ncp-uart-zs3l-none-115200-8.2.2-12.5.gbl",
-      "md5": "744c1a99b4e9fa3bae4090c97dd5bf9e",
+      "fw_url": "https://dongbh.github.io/downloads/ncp-uart-zs3l-hw-460800-8.2.2-12.5.gbl",
+      "md5": "3ebccfaebcefd927e71f1bf2a0503336",
       "size": 210868,
       "version": "8.2.2"
     },
