@@ -7,8 +7,9 @@
     - [基于efr32mg13](https://dongbh.github.io/usb2efr32mg13/)
     - [基于mgm210l](https://dongbh.github.io/usb2mgm210l/)
     - [基于efr32mg21](https://dongbh.github.io/usb2efr32mg21/)
-3. zigbee有线路由器，位置自由，信号较强：
-    - [zbgw8201 基于esp32 和 efr32 的 zbgw8201 zigbee 和蓝牙网关](https://dongbh.github.io/zbgw8201/)
+3. zigbee有线网关，位置自由，信号较强：
+    - [最新 zbgw 基于esp32 和 efr32 的 zigbee 和蓝牙网关](https://dongbh.github.io/zbgw/)
+    - [zbgw8201 基于esp32 和 efr32 的 zigbee 和蓝牙网关](https://dongbh.github.io/zbgw8201/)
     - [zbgw7628 基于mt8726 和 efr32 的 zigbee 网关](https://dongbh.github.io/zbgw7628/)
 4. HomeAssistant OS
     - [DUSUN dsgw-210 HAOS ](https://dongbh.github.io/dsgw-210/)
