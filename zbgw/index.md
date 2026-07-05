@@ -16,7 +16,8 @@ zbgw 是一款面向 Home Assistant 的有线 Zigbee + BLE 网关。它通过以
 - 本地上传升级：ESP32 OTA 文件和 EFR32 GBL 文件都可以通过 Web 页面上传。
 - 运行诊断：提供事件日志、BLE 状态、Zigbee TCP 连接状态等指标。
 - 外置天线设计：Zigbee 和 ESP32 均使用天线接口，便于根据部署环境优化信号。
-- Type-C 供电，体积小，适合放在弱电箱、机柜或家庭中心位置长期运行。![体积小巧](/res/zbgw8201.png "网关照片")
+- Type-C 供电，体积小，适合放在弱电箱、机柜或家庭中心位置长期运行。
+![体积小巧](/res/zbgw8201.png "网关照片")
 
 ## 默认信息
 
@@ -33,6 +34,8 @@ zbgw 是一款面向 Home Assistant 的有线 Zigbee + BLE 网关。它通过以
 | Zigbee UART 引脚 | TX `GPIO33`, RX `GPIO35`, RTS `GPIO32`, CTS `GPIO34` |
 | 以太网 PHY | RTL8201/SR8201 |
 | 以太网引脚 | MDC `GPIO23`, MDIO `GPIO18`, PHY reset `GPIO12` |
+
+![web](/res/zbgw_web.png "web 页面")
 
 ## 快速使用
 
